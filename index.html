@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){try{var t=localStorage.getItem("executiveHubTheme")||"system";var d=t==="dark"||(t==="system"&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.setAttribute("data-theme",d?"dark":"light")}catch(e){}})();</script>
+<title>Executive Assistant Command Center</title>
+<style>
+:root{--bg:#f8f3f4;--panel:#fffdfd;--ink:#28171d;--muted:#826c73;--line:#eadde1;--accent:#7f1734;--accent-soft:#f7e8ed;--green:#16845b;--green-soft:#e6f7ef;--amber:#a16207;--amber-soft:#fff5d8;--red:#b4233d;--red-soft:#ffebee;--blue:#7a4a88;--blue-soft:#f0e8f4;--shadow:0 10px 30px rgba(75,20,39,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 13px;font-weight:650;transition:background .15s,transform .15s}button:active{transform:translateY(1px)}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #dca4b5;outline-offset:2px}.primary{background:var(--accent);color:#fff}.primary:hover{background:#651128}.soft{background:var(--accent-soft);color:#4435c8}.outline{background:#fff;border:1px solid var(--line);color:#485166}.danger{background:var(--red-soft);color:var(--red)}.iconbtn{width:38px;height:38px;padding:0;display:grid;place-items:center;background:#fff;border:1px solid var(--line);color:#5c6474;font-size:17px}.muted{color:var(--muted)}.hidden{display:none!important}.shell{max-width:1440px;margin:auto;min-height:100vh;display:grid;grid-template-columns:240px minmax(0,1fr)}.sidebar{background:#35111f;color:#fbedf1;padding:25px 16px;display:flex;flex-direction:column;gap:28px}.brand{display:flex;gap:11px;align-items:center;padding:0 8px}.brandmark{width:39px;height:39px;border-radius:13px;background:linear-gradient(135deg,#b34d6b,#71152f);display:grid;place-items:center;font-size:20px;box-shadow:0 5px 18px #7f173455}.brand strong{display:block;font-size:14px;letter-spacing:.1px}.brand small{color:#a5acc4;font-size:11px}.nav-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#7e86a2;padding:0 12px;margin-bottom:7px}.nav{display:grid;gap:5px}.nav button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:transparent;color:#aeb5cb;padding:11px 12px;border-radius:10px;font-weight:550}.nav button .navicon{width:21px;text-align:center;font-size:17px}.nav button.active,.nav button:hover{background:#542137;color:#fff}.nav button.active{box-shadow:inset 3px 0 #e8a4b8}.sidebar-bottom{margin-top:auto;padding:14px 10px;border-top:1px solid #34384d;color:#9da5bf;font-size:12px}.sidebar-bottom strong{display:block;color:#fff;font-size:13px;margin-bottom:3px}.main{min-width:0;padding:25px 30px 44px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.eyebrow{font-size:11px;color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:1.2px}.page-title{font-size:27px;line-height:1.2;letter-spacing:-.8px;margin:4px 0 5px}.page-sub{margin:0;color:var(--muted)}.top-actions{display:flex;align-items:center;gap:10px}.clock{text-align:right;margin-right:5px}.clock strong{display:block;font-size:16px;font-variant-numeric:tabular-nums}.clock small{color:var(--muted)}.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#f3dfe6;color:#7f1734;font-weight:800}.welcome{background:linear-gradient(115deg,#451426,#7f1734 62%,#a94361);color:#fff;border-radius:18px;padding:23px 25px;display:flex;justify-content:space-between;align-items:center;gap:20px;position:relative;overflow:hidden;margin-bottom:18px}.welcome:after{content:"";position:absolute;width:230px;height:230px;border:1px solid #ffffff22;border-radius:50%;right:12%;top:-145px;box-shadow:0 0 0 25px #ffffff08,0 0 0 55px #ffffff06}.welcome h2{margin:0 0 5px;font-size:21px;letter-spacing:-.4px;position:relative;z-index:1}.welcome p{margin:0;color:#e2e0ff;position:relative;z-index:1}.welcome .welcome-date{position:relative;z-index:1;text-align:right;font-size:12px;color:#e2e0ff}.welcome .welcome-date strong{display:block;color:#fff;font-size:16px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:18px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:16px 17px;box-shadow:var(--shadow);min-width:0}.stat-top{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--muted);font-size:12px;font-weight:650}.stat-icon{width:31px;height:31px;border-radius:10px;display:grid;place-items:center;font-size:15px;background:var(--accent-soft);color:var(--accent)}.stat:nth-child(2) .stat-icon{background:var(--blue-soft);color:var(--blue)}.stat:nth-child(3) .stat-icon{background:var(--amber-soft);color:var(--amber)}.stat:nth-child(4) .stat-icon{background:var(--green-soft);color:var(--green)}.stat-num{font-size:29px;font-weight:800;letter-spacing:-1px;margin:7px 0 1px}.stat-foot{font-size:11px;color:var(--muted)}.layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.9fr);gap:18px;align-items:start}.column{display:grid;gap:18px;min-width:0}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:19px;box-shadow:var(--shadow);min-width:0}.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.card-head h2{margin:0;font-size:16px;letter-spacing:-.2px}.card-head p{margin:3px 0 0;font-size:12px;color:var(--muted)}.text-btn{background:transparent;color:var(--accent);padding:5px;font-size:12px}.agenda-list,.task-list,.contact-list,.notes-list{display:grid;gap:10px}.agenda-item{display:grid;grid-template-columns:60px 3px minmax(0,1fr) auto;gap:11px;align-items:stretch;padding:10px 0;border-bottom:1px solid #f0f1f6}.agenda-item:last-child{border-bottom:0}.agenda-time{font-size:12px;font-weight:750;color:#535c70;padding-top:2px}.agenda-line{border-radius:99px;background:#776bf0}.agenda-item:nth-child(3n+2) .agenda-line{background:#2b9bc5}.agenda-item:nth-child(3n) .agenda-line{background:#e6a43a}.agenda-title{font-size:13px;font-weight:750}.agenda-meta{font-size:11px;color:var(--muted);margin-top:3px}.agenda-tag{font-size:10px;padding:4px 7px;border-radius:7px;background:#f7e6eb;color:#7f1734;white-space:nowrap;align-self:start}.agenda-tag.external{background:#f0e8f4;color:#70417b}.agenda-tag.personal{background:#e6f7ef;color:#16845b}.agenda-item.is-done .agenda-title{text-decoration:line-through;color:#8b91a0}.agenda-item.is-done{opacity:.7}.agenda-actions{display:flex;gap:4px;align-items:start}.mini{padding:5px 7px;font-size:11px;border-radius:7px}.task-row{display:flex;gap:10px;align-items:flex-start;padding:11px 0;border-bottom:1px solid #f0f1f6}.task-row:last-child{border-bottom:0}.task-check{appearance:none;width:18px;height:18px;border:1.5px solid #c7ccda;border-radius:6px;margin:2px 0 0;flex:none;cursor:pointer;display:grid;place-items:center}.task-check:checked{background:var(--accent);border-color:var(--accent)}.task-check:checked:after{content:"✓";font-size:12px;color:#fff;font-weight:800}.task-body{flex:1;min-width:0}.task-name{font-size:13px;font-weight:700;overflow-wrap:anywhere}.task-row.done .task-name{text-decoration:line-through;color:#9298a7}.task-detail{display:flex;gap:7px;flex-wrap:wrap;margin-top:5px;color:var(--muted);font-size:11px}.priority{border-radius:5px;padding:2px 6px;font-size:10px;font-weight:750}.priority.High{background:var(--red-soft);color:var(--red)}.priority.Medium{background:var(--amber-soft);color:var(--amber)}.priority.Low{background:var(--green-soft);color:var(--green)}.overdue{color:var(--red)!important;font-weight:750}.small-actions{display:flex;gap:5px}.small-actions button{padding:5px 7px;font-size:11px}.week-strip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin-bottom:15px}.week-day{border:1px solid transparent;background:transparent;border-radius:10px;padding:9px 0 8px;display:grid;justify-items:center;gap:5px;color:var(--muted);font-size:10px}.week-day strong{font-size:13px;color:var(--ink)}.week-day.selected{background:var(--accent-soft);border-color:#d8d3ff;color:var(--accent)}.week-day.selected strong{color:var(--accent)}.week-day.today:not(.selected){border-color:var(--line)}.day-dot{width:4px;height:4px;background:var(--accent);border-radius:50%}.day-dot.none{background:transparent}.empty{padding:24px 12px;text-align:center;color:var(--muted);font-size:12px;background:#fafbfe;border:1px dashed #e2e5ee;border-radius:11px}.empty strong{display:block;color:#4b5563;font-size:13px;margin-bottom:3px}.contact-row{display:flex;align-items:center;gap:10px;padding:8px 0}.contact-initials{width:36px;height:36px;flex:none;border-radius:12px;display:grid;place-items:center;background:#f6e5eb;color:#7f1734;font-size:11px;font-weight:800}.contact-info{flex:1;min-width:0}.contact-info strong{display:block;font-size:12px;overflow-wrap:anywhere}.contact-info small{display:block;color:var(--muted);font-size:11px;overflow-wrap:anywhere}.contact-kind{font-size:10px;padding:4px 7px;border-radius:7px;background:#f2f4f8;color:#606b7d}.note-item{padding:12px;border:1px solid var(--line);border-radius:11px;background:#fcfcff}.note-item strong{display:block;font-size:12px}.note-item p{font-size:12px;color:#5f6879;white-space:pre-wrap;margin:6px 0 8px;overflow-wrap:anywhere}.note-meta{font-size:10px;color:#8a91a1;display:flex;justify-content:space-between;gap:8px}.searchbar{display:flex;gap:8px;align-items:center;margin-bottom:18px}.searchbox{flex:1;position:relative}.searchbox span{position:absolute;left:12px;top:10px;color:#9299a9}.searchbox input{width:100%;padding:10px 12px 10px 35px;border:1px solid var(--line);border-radius:11px;background:#fff}.section-page{display:grid;gap:16px}.section-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px}.section-toolbar h2{font-size:18px;margin:0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.field{display:grid;gap:5px;margin:9px 0}.field label{font-size:11px;font-weight:750;color:#586174}.field input,.field select,.field textarea{width:100%;border:1px solid #dce0ea;border-radius:9px;padding:10px 11px;background:#fff;color:var(--ink);min-width:0}.field textarea{min-height:85px;resize:vertical}.span-2{grid-column:1/-1}.inline-form{padding:14px;background:#fafbff;border:1px solid var(--line);border-radius:12px;margin-bottom:14px}.inline-form-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}.search-filter{display:flex;gap:8px;flex-wrap:wrap}.search-filter select{border:1px solid var(--line);border-radius:9px;padding:9px;background:#fff;color:var(--ink)}.footer-note{font-size:11px;color:#8991a1;text-align:center;margin-top:22px}.toast{position:fixed;right:24px;bottom:22px;background:#20253a;color:#fff;padding:12px 16px;border-radius:12px;box-shadow:0 10px 30px #11182722;z-index:20;max-width:calc(100% - 32px)}.mobile-menu{display:none}
+
+.login-gate{min-height:100vh;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr);background:#fffdfd;color:#28171d}.login-showcase{background:radial-gradient(circle at 78% 22%,#8b2948 0,transparent 32%),linear-gradient(145deg,#2c0d19,#4a1327 48%,#741a37);color:#fff5f7;padding:38px 8%;display:flex;flex-direction:column;position:relative;overflow:hidden;min-height:100vh}.login-showcase:before,.login-showcase:after{content:"";position:absolute;border:1px solid #ffffff1c;border-radius:50%;width:440px;height:440px;right:-150px;bottom:-130px;box-shadow:0 0 0 35px #ffffff06,0 0 0 75px #ffffff05}.login-showcase:after{width:260px;height:260px;right:10%;bottom:9%;border-color:#e8a4b82b;box-shadow:none}.login-brand,.login-mobile-brand{display:flex;align-items:center;gap:11px;position:relative;z-index:1}.login-brand strong,.login-mobile-brand strong{display:block;font-size:14px}.login-brand small{display:block;font-size:10px;letter-spacing:1.6px;color:#d7aebb}.showcase-copy{position:relative;z-index:1;margin:auto 0;max-width:560px;padding:70px 0}.showcase-kicker,.login-eyebrow{font-size:10px;letter-spacing:2px;font-weight:850;color:#e8a4b8}.showcase-copy h1{font-size:clamp(42px,5.2vw,70px);line-height:1.05;letter-spacing:-2px;margin:18px 0}.showcase-copy h1 em{font-family:Georgia,serif;font-weight:400;color:#e7a2b5}.showcase-copy p{max-width:440px;color:#e5cbd3;font-size:15px;line-height:1.8}.showcase-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.showcase-pills span{border:1px solid #ffffff2c;border-radius:99px;padding:9px 12px;font-size:11px;color:#f8e9ee;background:#ffffff08}.showcase-footer{position:relative;z-index:1;color:#bb8c9c;font-size:9px;letter-spacing:1.8px}.login-side{display:grid;place-items:center;padding:32px 26px;position:relative}.login-card{width:min(390px,100%)}.login-mobile-brand{display:none;margin-bottom:35px}.login-card h2{font-size:30px;letter-spacing:-1px;margin:9px 0 7px}.login-card>p{color:#8b727a;margin:0 0 27px;font-size:13px}.login-field{display:grid;gap:7px;margin:16px 0}.login-field label{font-size:11px;font-weight:800;color:#543743}.login-field input{width:100%;padding:13px 14px;border:1px solid #e4d4da;border-radius:11px;background:#fffafb;color:#28171d}.login-field input:focus{border-color:#a34c67;outline:3px solid #f5e4ea}.login-submit{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;margin-top:12px;background:linear-gradient(100deg,#68132e,#8c2445);color:#fff;border-radius:11px;box-shadow:0 8px 20px #741a3720}.login-submit span{font-size:20px}.login-switch{margin-top:22px;text-align:center;font-size:12px;color:#8b727a}.login-switch button{padding:0 0 0 4px;background:none;color:#7f1734;font-weight:800}.login-security{margin-top:26px;padding-top:15px;border-top:1px solid #efe3e7;font-size:10px;line-height:1.6;color:#9a858c}.login-copyright{position:absolute;bottom:18px;font-size:9px;letter-spacing:1.2px;color:#a18b92}.login-copyright span{padding:0 7px;color:#b55c78}.login-message{padding:10px;border-radius:8px}.login-error{padding:10px 12px;background:#ffedf0;color:#a3213e;border:1px solid #f4cbd5;border-radius:9px;font-size:12px;margin-bottom:12px}.login-success{padding:10px 12px;background:#e8f7ef;color:#176b49;border-radius:9px;font-size:12px;margin-bottom:12px}
+@media(max-width:1050px){.login-gate{grid-template-columns:minmax(0,1fr) minmax(360px,.9fr)}.shell{grid-template-columns:205px minmax(0,1fr)}.main{padding:22px 20px}.layout{grid-template-columns:minmax(0,1fr)}.right-column{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{gap:9px}.stat{padding:13px}}
+@media(max-width:720px){.login-gate{grid-template-columns:1fr}.login-showcase{display:none}.login-side{min-height:100vh;padding:26px 22px}.login-mobile-brand{display:flex}.login-copyright{bottom:10px}.shell{display:block}.sidebar{display:none}.main{padding:18px 13px 35px}.topbar{align-items:flex-start}.top-actions{gap:6px}.clock{display:none}.page-title{font-size:23px}.welcome{padding:19px;align-items:flex-start}.welcome .welcome-date{display:none}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.right-column{grid-template-columns:1fr}.layout{gap:13px}.card{padding:15px}.agenda-item{grid-template-columns:48px 3px minmax(0,1fr)}.agenda-actions{grid-column:3}.agenda-tag{display:none}.mobile-menu{display:inline-grid}.form-grid{grid-template-columns:1fr}.span-2{grid-column:auto}.searchbar{flex-wrap:wrap}.search-filter{width:100%}.search-filter select{flex:1;min-width:0}}
+
+.command-deck{margin:0 0 24px;border-radius:22px;overflow:hidden;background:linear-gradient(125deg,#35111f 0%,#641b35 52%,#8a2947 100%);color:#fff;box-shadow:0 18px 42px rgba(69,12,34,.16);position:relative}
+.command-deck:before{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-100px;top:-190px;box-shadow:0 0 0 35px rgba(255,255,255,.025),0 0 0 70px rgba(255,255,255,.02);pointer-events:none}
+.deck-top{position:relative;display:flex;justify-content:space-between;gap:20px;align-items:flex-start;padding:25px 26px 20px}
+.eyebrow{font-size:10px;letter-spacing:2.2px;font-weight:850;color:#f0b9ca}.deck-top h2{margin:8px 0 5px;font-size:clamp(21px,2.2vw,29px);letter-spacing:-.8px}.deck-top p{margin:0;color:#e4cbd3;font-size:13px}.deck-actions{display:flex;gap:8px;flex-wrap:wrap}.glass-btn{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.23);font-size:12px}.glass-btn:hover{background:rgba(255,255,255,.19)}
+.deck-grid{position:relative;padding:0 20px 20px;display:grid;grid-template-columns:1.3fr 1fr .8fr;gap:12px}.deck-panel{border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.075);border-radius:16px;padding:17px;min-width:0;backdrop-filter:blur(8px)}.panel-label{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:9px;letter-spacing:1.5px;font-weight:850;color:#edc6d1}.live-dot{color:#b9f2d5;font-size:9px}.intention-prompt{display:block;margin:16px 0 10px;font-size:15px;font-weight:750}.intention-row{display:flex;gap:7px}.intention-row input{min-width:0;width:100%;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:9px;padding:11px}.intention-row input::placeholder{color:#d7b8c2}.accent-light{background:#f8e4eb;color:#6a1732;white-space:nowrap}.microcopy{font-size:10px;color:#d6b5c0;margin-top:9px}.focus-clock{font-size:42px;line-height:1.2;font-weight:800;letter-spacing:-2px;margin-top:11px;font-variant-numeric:tabular-nums}.focus-caption{font-size:11px;color:#e2c8d1;margin:2px 0 13px}.focus-controls{display:flex;gap:6px;align-items:center}.focus-main{background:#f8e4eb;color:#641b35;font-size:11px;white-space:nowrap}.focus-small{background:rgba(255,255,255,.12);color:white;padding:9px 11px}.focus-controls select{min-width:0;max-width:95px;background:rgba(255,255,255,.1);color:white;border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:8px;font-size:10px}.focus-controls select option{color:#28171d}.momentum-number{font-size:38px;letter-spacing:-2px;font-weight:800;margin:10px 0 6px}.momentum-track{height:7px;border-radius:10px;background:rgba(255,255,255,.15);overflow:hidden}.momentum-track span{display:block;height:100%;width:0;background:linear-gradient(90deg,#f5c6d5,#fff);border-radius:10px;transition:width .35s}.progress-panel p{font-size:11px;color:#e4cbd3;min-height:34px;margin:11px 0}.momentum-foot{border-top:1px solid rgba(255,255,255,.13);padding-top:10px;display:flex;justify-content:space-between;color:#e4cbd3;font-size:10px}.momentum-foot strong{font-size:13px;color:white}.capture-row{display:flex;gap:12px;align-items:center;padding:16px 22px;background:rgba(27,5,14,.25);border-top:1px solid rgba(255,255,255,.1);position:relative}.capture-icon{width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:19px;flex-shrink:0}.capture-copy{min-width:180px;display:flex;flex-direction:column;gap:3px}.capture-copy strong{font-size:12px}.capture-copy span{font-size:10px;color:#dfc3cc}.capture-row form{display:flex;gap:7px;flex:1;min-width:0}.capture-row input{min-width:80px;flex:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:9px;padding:10px 12px;color:#fff}.capture-row input::placeholder{color:#d7b8c2}.capture-row select{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:9px;color:#fff;padding:8px}.capture-row select option{color:#28171d}.capture-row .primary{background:#f8e4eb;color:#641b35;white-space:nowrap}
+@media(max-width:1050px){.deck-grid{grid-template-columns:1fr 1fr}.progress-panel{grid-column:span 2}.progress-panel p{min-height:0}.capture-row{flex-wrap:wrap}.capture-copy{flex:1}}
+@media(max-width:650px){.deck-top{padding:20px;flex-direction:column}.deck-grid{grid-template-columns:1fr;padding:0 12px 12px}.progress-panel{grid-column:auto}.capture-row{padding:14px;align-items:flex-start}.capture-copy{min-width:0}.capture-row form{flex-basis:100%;flex-wrap:wrap}.capture-row form input{flex-basis:100%}.capture-row select{flex:1}.deck-actions{width:100%}}
+
+
+.strategy-suite{margin:0 0 24px}.suite-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 2px 15px}.suite-kicker{font-size:9px;letter-spacing:2px;color:#8c3c57;font-weight:900}.suite-heading h2{margin:6px 0 4px;font-size:clamp(20px,2vw,27px);letter-spacing:-.7px;color:#3a1724}.suite-heading p{margin:0;color:#927b83;font-size:12px}.suite-add{background:#641b35;color:#fff;box-shadow:0 8px 18px #641b3524;white-space:nowrap}.strategy-grid{display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:13px}.strategy-card{background:linear-gradient(145deg,#fff,#fff9fb);border:1px solid #f0e1e6;border-radius:18px;padding:18px;box-shadow:0 8px 24px #4d1a2a08;min-width:0}.strategy-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;padding-bottom:15px;border-bottom:1px solid #f2e7eb}.strategy-card-head>div{display:grid;grid-template-columns:31px 1fr;column-gap:9px;align-items:center}.strategy-icon{grid-row:span 2;width:31px;height:31px;display:grid;place-items:center;border-radius:10px;background:#f6e6eb;color:#7b2946;font-size:16px}.strategy-card-head strong{font-size:13px;color:#3d202a}.strategy-card-head small{font-size:10px;color:#9a858c;margin-top:3px}.count-pill,.briefing-tag{font-size:9px;font-weight:800;white-space:nowrap;border-radius:20px;padding:6px 8px;background:#f8edf1;color:#7c2b48}.goals-list{display:grid;gap:13px;padding-top:14px}.goal-item{border:1px solid #f1e5e9;border-radius:12px;padding:12px}.goal-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.goal-name{font-size:12px;font-weight:750;color:#452330;overflow-wrap:anywhere}.goal-delete{border:0;background:transparent;color:#b7a1a9;padding:0 3px;font-size:15px}.goal-delete:hover{color:#8a2947}.goal-meta{display:flex;justify-content:space-between;gap:8px;margin:8px 0 7px;color:#9c858d;font-size:10px}.goal-progress{height:6px;border-radius:10px;background:#f2e5e9;overflow:hidden}.goal-progress span{height:100%;display:block;background:linear-gradient(90deg,#7a2442,#d28aa1);border-radius:10px;transition:width .3s}.goal-controls{display:flex;gap:6px;align-items:center;margin-top:10px}.goal-controls button{border:1px solid #ead5dd;background:white;color:#74223f;border-radius:7px;padding:5px 9px;font-size:10px}.goal-controls button:hover{background:#f9edf1}.goal-controls .goal-bump{margin-left:auto;font-weight:800}.empty-goals{padding:24px 10px;text-align:center;color:#9c858d}.empty-goals>span{font-size:25px;color:#b96c86}.empty-goals strong{display:block;font-size:12px;color:#68404e;margin:6px}.empty-goals p{font-size:10px;margin:0}.rituals-list{display:grid;gap:0;padding-top:5px}.ritual-row{display:flex;align-items:center;gap:9px;padding:11px 1px;border-bottom:1px solid #f4eaee}.ritual-check{width:19px;height:19px;border:1.5px solid #d9b6c2;border-radius:6px;background:#fff;color:white;display:grid;place-items:center;flex-shrink:0;padding:0;font-size:12px}.ritual-check.checked{background:#74223f;border-color:#74223f}.ritual-name{font-size:11px;color:#573441;flex:1;overflow-wrap:anywhere}.ritual-name.done{text-decoration:line-through;color:#b29da5}.ritual-streak{font-size:9px;color:#9b7b87;white-space:nowrap}.ritual-delete{border:0;background:transparent;color:#c0a8b1;padding:2px}.ritual-add{display:flex;gap:6px;margin-top:12px}.ritual-add input{min-width:0;flex:1;border:1px solid #ead9e0;border-radius:8px;padding:9px;font-size:11px}.ritual-add button{background:#f5e5eb;color:#70203e;border-radius:8px;padding:0 12px}.ritual-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px;color:#a18b93;font-size:9px}.ritual-foot button{border:0;background:transparent;color:#8a5367;font-size:9px}.briefing-content{display:grid;gap:10px;padding:15px 0 8px}.brief-line{display:grid;grid-template-columns:27px 1fr;gap:9px;align-items:start}.brief-symbol{width:26px;height:26px;border-radius:8px;background:#f7e9ee;color:#7b2946;display:grid;place-items:center;font-size:12px}.brief-line strong{display:block;color:#55303e;font-size:11px;margin:1px 0 3px}.brief-line p{margin:0;color:#927b83;font-size:10px;line-height:1.5}.briefing-refresh{border:0;background:transparent;color:#812b4a;font-weight:750;font-size:10px;padding:9px 0 0}.briefing-refresh:hover{text-decoration:underline}
+@media(max-width:1100px){.strategy-grid{grid-template-columns:1fr 1fr}.briefing-card{grid-column:span 2}.briefing-content{grid-template-columns:1fr 1fr;column-gap:15px}}
+@media(max-width:650px){.suite-heading{align-items:flex-start;flex-direction:column}.strategy-grid{grid-template-columns:1fr}.briefing-card{grid-column:auto}.briefing-content{grid-template-columns:1fr}}
+
+
+.ops-suite{margin:0 0 25px}.ops-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px}.ops-card{min-width:0;background:#fff;border:1px solid #efdee5;border-radius:17px;padding:17px;box-shadow:0 8px 24px #4d1a2a08}.ops-head{display:flex;justify-content:space-between;align-items:flex-start;gap:9px;padding-bottom:14px;border-bottom:1px solid #f2e7eb}.ops-head>div{display:grid;grid-template-columns:30px 1fr;column-gap:8px;align-items:center}.ops-icon{grid-row:span 2;width:30px;height:30px;border-radius:10px;background:#f7e8ee;color:#762543;display:grid;place-items:center;font-size:16px}.ops-head strong{font-size:12px;color:#442330}.ops-head small{font-size:10px;color:#9a858c;margin-top:3px}.ops-add{background:#f7e8ee;color:#762543;padding:8px 10px;font-size:10px;white-space:nowrap}.ops-badge{background:#f8edf1;color:#7c2b48;border-radius:20px;padding:6px 8px;font-size:9px;font-weight:800}.ops-form{display:grid;gap:8px;padding:13px 0;border-bottom:1px solid #f2e7eb}.ops-form input,.ops-form textarea,.ops-form select,.review-card input,.review-card textarea{width:100%;min-width:0;border:1px solid #ead9e0;border-radius:8px;padding:9px 10px;font:inherit;font-size:11px;color:#563442;background:#fff}.ops-form textarea,.review-card textarea{resize:vertical}.ops-form .primary{justify-self:start;font-size:10px}.ops-list{display:grid;gap:8px;padding-top:12px}.ops-item{border:1px solid #f1e5e9;border-radius:10px;padding:10px}.ops-item-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.ops-item-title{font-size:11px;font-weight:750;color:#51303d;overflow-wrap:anywhere}.ops-item-meta{font-size:9px;color:#9a858c;margin-top:5px;line-height:1.5}.ops-item-actions{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}.ops-item-actions button{border:1px solid #ead5dd;background:#fff;color:#74223f;border-radius:6px;padding:5px 7px;font-size:9px}.ops-item-actions button:hover{background:#f9edf1}.ops-item-note{font-size:10px;color:#826a74;line-height:1.5;margin-top:7px;white-space:pre-wrap;overflow-wrap:anywhere}.ops-empty{padding:22px 6px;text-align:center;color:#a08a92;font-size:10px;line-height:1.6}.review-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:13px 0}.review-stat{background:#fbf3f6;border-radius:9px;padding:10px 7px}.review-stat strong{display:block;color:#70203e;font-size:19px;letter-spacing:-.5px}.review-stat span{font-size:9px;color:#947d86}.review-label{display:block;font-size:10px;font-weight:750;color:#684252;margin:10px 0 5px}.review-save{margin-top:12px;width:100%;font-size:11px}.review-saved{font-size:9px;color:#9a858c;margin-top:8px}.ops-card .hidden{display:none!important}
+@media(max-width:1100px){.ops-grid{grid-template-columns:1fr 1fr}.review-card{grid-column:span 2}}
+@media(max-width:650px){.ops-grid{grid-template-columns:1fr}.review-card{grid-column:auto}}
+
+
+/* Dedicated navigation destinations for Strategy Room and Operations Center */
+.sidebar .nav{max-height:calc(100vh - 190px);overflow-y:auto;padding-right:3px}
+.sidebar .nav button{flex-shrink:0}
+\n
+/* Account profile customizer */
+.avatar-button{border:0;cursor:pointer;padding:0;display:grid;place-items:center;overflow:hidden;background:#f4dfe7;color:#8a2947;font-weight:800}
+.avatar-button img,.profile-preview img{width:100%;height:100%;object-fit:cover;display:block}
+.top-actions{position:relative}
+.profile-menu{position:absolute;z-index:100;right:44px;top:54px;width:min(330px,calc(100vw - 32px));padding:17px;background:#fff;border:1px solid #eedbe3;border-radius:16px;box-shadow:0 18px 50px #32101e30;color:#492633}
+.profile-menu.hidden{display:none!important}
+.profile-menu-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid #f1e5e9;font-size:13px}
+.profile-menu-head button{border:0;background:transparent;color:#8b6c78;font-size:22px;padding:0 5px}
+.profile-preview-row{display:flex;align-items:center;gap:12px;padding:15px 0}
+.profile-preview{width:48px;height:48px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;overflow:hidden;background:#f4dfe7;color:#8a2947;font-weight:800;font-size:18px}
+.profile-preview-row strong{display:block;font-size:12px}.profile-preview-row small{display:block;margin-top:4px;font-size:10px;color:#9b818b}
+.profile-field-label{display:block;font-size:10px;font-weight:800;color:#76505f;margin-bottom:5px}
+#profileNameInput{width:100%;border:1px solid #e8d5dd;border-radius:8px;padding:10px;font:inherit;font-size:12px;color:#492633}
+.profile-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.profile-actions button{font-size:10px;padding:8px 10px}
+.profile-note{font-size:9px;line-height:1.5;color:#a18b94;margin:11px 0 0}
+
+
+/* Interactive avatar cropper */
+.photo-crop-modal{position:fixed;inset:0;z-index:9999;background:rgba(35,8,19,.72);display:grid;place-items:center;padding:18px;backdrop-filter:blur(5px)}
+.photo-crop-modal.hidden{display:none!important}
+.photo-crop-dialog{width:min(540px,100%);background:#fffafc;border:1px solid #eedbe3;border-radius:20px;box-shadow:0 30px 90px #1e0611a6;padding:20px;color:#492633}
+.photo-crop-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.photo-crop-head h2{font-size:22px;margin:5px 0}.photo-crop-head p{font-size:11px;color:#987e89;margin:0}.photo-crop-head>button{border:0;background:#f7e8ee;color:#7c2847;border-radius:9px;font-size:22px;width:34px;height:34px}
+.photo-crop-stage{position:relative;width:min(340px,100%);aspect-ratio:1/1;margin:20px auto 16px;border-radius:50%;overflow:hidden;background:#2e101d;touch-action:none;cursor:grab;user-select:none}.photo-crop-stage:active{cursor:grabbing}.photo-crop-stage img{position:absolute;max-width:none;max-height:none;pointer-events:none;user-select:none;transform-origin:center center}.crop-frame{position:absolute;inset:0;border:2px solid rgba(255,255,255,.85);border-radius:50%;box-shadow:0 0 0 999px rgba(24,4,12,.3);pointer-events:none}
+.photo-crop-controls{display:flex;gap:14px;align-items:center;justify-content:center;margin:10px 0 18px}.photo-crop-controls label{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:750;color:#76505f;flex:1;max-width:290px}.photo-crop-controls input{width:100%;accent-color:#812b4a}.photo-crop-controls button,.photo-crop-foot button{font-size:11px;padding:9px 12px}
+.photo-crop-foot{border-top:1px solid #f0e1e7;padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:12px}.photo-crop-foot>span{font-size:9px;color:#a18b94}.photo-crop-foot>div{display:flex;gap:7px}
+@media(max-width:480px){.photo-crop-dialog{padding:15px}.photo-crop-stage{width:min(280px,100%)}.photo-crop-foot{align-items:flex-start;flex-direction:column}.photo-crop-foot>div{width:100%;justify-content:flex-end}}
+
+
+/* Keep crop editor controls interactive above the crop stage. */
+.photo-crop-dialog{position:relative;z-index:1}
+.photo-crop-head>button,.photo-crop-controls button,.photo-crop-controls input,.photo-crop-foot button{position:relative;z-index:3;pointer-events:auto;cursor:pointer}
+.photo-crop-controls input[type=range]{touch-action:pan-y}
+.photo-crop-stage{z-index:1}
+.crop-frame{z-index:2}
+
+
+/* ===== Recovery, theme + time zone UI (light) ===== */
+.theme-btn-login{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;padding:0;background:#fff;border:1px solid #e4d4da;color:#7f1734;font-size:17px;display:grid;place-items:center;z-index:2}
+.login-forgot{display:flex;justify-content:space-between;gap:10px;margin:-4px 0 6px}
+.login-forgot button{background:none;padding:2px 0;color:#7f1734;font-size:12px;font-weight:700}
+.login-forgot button:hover{text-decoration:underline}
+.login-help{font-size:11px;color:#9a858c;margin:-6px 0 4px;line-height:1.5}
+.login-question{padding:11px 13px;border-radius:11px;background:#f9edf1;color:#68132e;font-size:13px;font-weight:700;margin:6px 0 4px}
+.login-back{width:100%;margin-top:12px;background:none;color:#7f1734;font-weight:700;font-size:12px}
+.login-field select{width:100%;padding:13px 14px;border:1px solid #e4d4da;border-radius:11px;background:#fffafb;color:#28171d}
+.profile-menu{max-height:calc(100vh - 90px);overflow-y:auto}
+.profile-section{margin-top:14px;padding-top:12px;border-top:1px solid #f1e5e9}
+.profile-select{width:100%;border:1px solid #e8d5dd;border-radius:8px;padding:9px;font:inherit;font-size:12px;color:#492633;background:#fff}
+.profile-tz-now{display:block;margin-top:5px;font-size:10px;color:#9b818b}
+.profile-recovery summary{cursor:pointer;font-size:11px;font-weight:800;color:#76505f}
+.profile-recovery summary span{font-weight:600;color:#9b818b;margin-left:4px}
+.profile-recovery label{display:block;font-size:10px;font-weight:800;color:#76505f;margin:10px 0 4px}
+.profile-recovery input,.profile-recovery select{width:100%;border:1px solid #e8d5dd;border-radius:8px;padding:9px;font:inherit;font-size:12px;color:#492633;background:#fff}
+.profile-recovery .primary{margin-top:10px;font-size:10px;padding:8px 10px}
+
+/* ===== Dark theme ===== */
+:root[data-theme="dark"]{color-scheme:dark;--bg:#140a0f;--panel:#1f1117;--ink:#f3e7eb;--muted:#b09aa3;--line:#38222c;--accent:#e58aa5;--accent-soft:#3b1927;--green:#4cc597;--green-soft:#12342a;--amber:#e9b23c;--amber-soft:#3a2d0c;--red:#f0697f;--red-soft:#3d1620;--blue:#c79ad6;--blue-soft:#2f1d36;--shadow:0 10px 30px rgba(0,0,0,.35)}
+[data-theme="dark"] .primary{background:#9c2a4d;color:#fff}
+[data-theme="dark"] .primary:hover{background:#b33259}
+[data-theme="dark"] .soft{color:#e9b0c1}
+[data-theme="dark"] .outline,[data-theme="dark"] .iconbtn{background:#2a1820;border-color:#4a2e3a;color:#e6d2d9}
+[data-theme="dark"] .text-btn{color:#e58aa5}
+[data-theme="dark"] .avatar,[data-theme="dark"] .avatar-button,[data-theme="dark"] .profile-preview{background:#3d1d2b;color:#f0b4c6}
+[data-theme="dark"] .sidebar{background:#1c0a12}
+[data-theme="dark"] .nav button.active,[data-theme="dark"] .nav button:hover{background:#35172a}
+[data-theme="dark"] .agenda-item,[data-theme="dark"] .task-row,[data-theme="dark"] .ritual-row{border-bottom-color:#2f1b24}
+[data-theme="dark"] .agenda-time{color:#c6b0b8}
+[data-theme="dark"] .agenda-tag{background:#3b1927;color:#f0b4c6}
+[data-theme="dark"] .agenda-tag.external{background:#2f1d36;color:#d9b3e6}
+[data-theme="dark"] .agenda-tag.personal{background:#12342a;color:#7fe0b6}
+[data-theme="dark"] .agenda-item.is-done .agenda-title,[data-theme="dark"] .task-row.done .task-name,[data-theme="dark"] .ritual-name.done{color:#7d6670}
+[data-theme="dark"] .task-check{border-color:#6a4a58}
+[data-theme="dark"] .week-day.selected{border-color:#6a2c44}
+[data-theme="dark"] .empty{background:#25141b;border-color:#3d2631;color:#b09aa3}
+[data-theme="dark"] .empty strong{color:#e3d0d7}
+[data-theme="dark"] .contact-initials{background:#3b1927;color:#f0b4c6}
+[data-theme="dark"] .contact-kind{background:#2a1820;color:#c9b3bb}
+[data-theme="dark"] .note-item,[data-theme="dark"] .inline-form{background:#25141b}
+[data-theme="dark"] .note-item p{color:#c4adb6}
+[data-theme="dark"] .note-meta{color:#a98f99}
+[data-theme="dark"] .field label{color:#c9b3bb}
+[data-theme="dark"] .field input,[data-theme="dark"] .field select,[data-theme="dark"] .field textarea,[data-theme="dark"] .searchbox input,[data-theme="dark"] .search-filter select{background:#2a1820;border-color:#4a2e3a;color:#f3e7eb}
+[data-theme="dark"] .footer-note{color:#8f7882}
+[data-theme="dark"] .toast{background:#3b1927;color:#fff;border:1px solid #6a2c44}
+[data-theme="dark"] .focus-controls select option,[data-theme="dark"] .capture-row select option{color:#f3e7eb;background:#2a1820}
+[data-theme="dark"] .suite-heading h2{color:#f3e1e7}
+[data-theme="dark"] .suite-kicker{color:#e58aa5}
+[data-theme="dark"] .suite-heading p{color:#b09aa3}
+[data-theme="dark"] .suite-add{background:#9c2a4d}
+[data-theme="dark"] .strategy-card,[data-theme="dark"] .ops-card{background:linear-gradient(145deg,#211219,#1b0f15);border-color:#3a232d}
+[data-theme="dark"] .strategy-card-head,[data-theme="dark"] .ops-head,[data-theme="dark"] .ops-form{border-bottom-color:#38222c}
+[data-theme="dark"] .strategy-card-head strong,[data-theme="dark"] .ops-head strong,[data-theme="dark"] .goal-name,[data-theme="dark"] .ritual-name,[data-theme="dark"] .ops-item-title,[data-theme="dark"] .brief-line strong{color:#f1dfe5}
+[data-theme="dark"] .strategy-card-head small,[data-theme="dark"] .ops-head small,[data-theme="dark"] .goal-meta,[data-theme="dark"] .brief-line p,[data-theme="dark"] .ops-item-meta,[data-theme="dark"] .ops-empty,[data-theme="dark"] .empty-goals,[data-theme="dark"] .ritual-foot,[data-theme="dark"] .review-saved,[data-theme="dark"] .review-stat span{color:#b09aa3}
+[data-theme="dark"] .empty-goals strong{color:#e3d0d7}
+[data-theme="dark"] .strategy-icon,[data-theme="dark"] .ops-icon,[data-theme="dark"] .brief-symbol,[data-theme="dark"] .count-pill,[data-theme="dark"] .briefing-tag,[data-theme="dark"] .ops-badge,[data-theme="dark"] .ritual-add button,[data-theme="dark"] .ops-add{background:#3b1927;color:#f0b4c6}
+[data-theme="dark"] .goal-item,[data-theme="dark"] .ops-item{border-color:#38222c;background:#25141b}
+[data-theme="dark"] .goal-progress{background:#38222c}
+[data-theme="dark"] .goal-controls button,[data-theme="dark"] .ops-item-actions button{background:#2a1820;border-color:#4a2e3a;color:#f0b4c6}
+[data-theme="dark"] .ritual-check{background:#2a1820;border-color:#6a4a58}
+[data-theme="dark"] .ritual-check.checked{background:#9c2a4d;border-color:#9c2a4d}
+[data-theme="dark"] .ritual-streak,[data-theme="dark"] .ritual-foot button{color:#c9a0b0}
+[data-theme="dark"] .ritual-add input,[data-theme="dark"] .ops-form input,[data-theme="dark"] .ops-form textarea,[data-theme="dark"] .ops-form select,[data-theme="dark"] .review-card input,[data-theme="dark"] .review-card textarea{background:#2a1820;border-color:#4a2e3a;color:#f3e7eb}
+[data-theme="dark"] .review-stat{background:#2a1820}
+[data-theme="dark"] .review-stat strong{color:#f0b4c6}
+[data-theme="dark"] .review-label{color:#cdb7bf}
+[data-theme="dark"] .ops-item-note{color:#bfa8b1}
+[data-theme="dark"] .briefing-refresh{color:#e58aa5}
+[data-theme="dark"] .profile-menu{background:#1f1117;border-color:#3a232d;color:#e6d2d9;box-shadow:0 18px 50px rgba(0,0,0,.6)}
+[data-theme="dark"] .profile-menu-head{border-bottom-color:#38222c}
+[data-theme="dark"] .profile-menu-head button{color:#c9a0b0}
+[data-theme="dark"] .profile-field-label,[data-theme="dark"] .profile-recovery summary,[data-theme="dark"] .profile-recovery label{color:#d6bcc6}
+[data-theme="dark"] #profileNameInput,[data-theme="dark"] .profile-select,[data-theme="dark"] .profile-recovery input,[data-theme="dark"] .profile-recovery select{background:#2a1820;border-color:#4a2e3a;color:#f3e7eb}
+[data-theme="dark"] .profile-section{border-top-color:#38222c}
+[data-theme="dark"] .profile-preview-row small,[data-theme="dark"] .profile-note,[data-theme="dark"] .profile-tz-now,[data-theme="dark"] .profile-recovery summary span{color:#a98f99}
+[data-theme="dark"] .photo-crop-dialog{background:#1f1117;border-color:#3a232d;color:#e6d2d9}
+[data-theme="dark"] .photo-crop-head>button{background:#3b1927;color:#f0b4c6}
+[data-theme="dark"] .photo-crop-head p,[data-theme="dark"] .photo-crop-foot>span{color:#a98f99}
+[data-theme="dark"] .photo-crop-controls label{color:#d6bcc6}
+[data-theme="dark"] .photo-crop-foot{border-top-color:#38222c}
+[data-theme="dark"] .login-gate{background:#150a10;color:#f3e7eb}
+[data-theme="dark"] .login-card h2{color:#f6eaee}
+[data-theme="dark"] .login-card>p,[data-theme="dark"] .login-switch{color:#b09aa3}
+[data-theme="dark"] .login-field label{color:#d9c0ca}
+[data-theme="dark"] .login-field input,[data-theme="dark"] .login-field select{background:#24131b;border-color:#4a2e3a;color:#f3e7eb}
+[data-theme="dark"] .login-field input:focus{border-color:#c0617f;outline-color:#3b1927}
+[data-theme="dark"] .login-switch button,[data-theme="dark"] .login-forgot button,[data-theme="dark"] .login-back{color:#e58aa5}
+[data-theme="dark"] .login-security{border-top-color:#38222c;color:#9a838c}
+[data-theme="dark"] .login-help{color:#9a838c}
+[data-theme="dark"] .login-copyright{color:#8f7882}
+[data-theme="dark"] .login-error{background:#3d1620;color:#ffb3c0;border-color:#6a2434}
+[data-theme="dark"] .login-success{background:#12342a;color:#9fe5c7}
+[data-theme="dark"] .login-question{background:#3b1927;color:#f4c3d1}
+[data-theme="dark"] .theme-btn-login{background:#24131b;border-color:#4a2e3a;color:#f0b4c6}
+
+/* Command palette + executive daily brief */
+.command-palette{position:fixed;inset:0;z-index:10000;background:rgba(25,7,14,.68);backdrop-filter:blur(7px);display:grid;place-items:start center;padding:12vh 18px 24px}
+.command-palette.hidden{display:none!important}.command-dialog{width:min(620px,100%);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 30px 100px #16030c66}.command-search-row{display:flex;gap:12px;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}.command-search-row span{font-size:22px;color:var(--accent)}.command-search-row input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:var(--ink);font-size:16px}.command-search-row kbd{font-size:10px;padding:4px 7px;border:1px solid var(--line);border-radius:6px;color:var(--muted)}.command-label{padding:13px 20px 7px;font-size:9px;letter-spacing:1.7px;font-weight:850;color:var(--muted)}.command-results{padding:0 9px 10px;max-height:55vh;overflow:auto}.command-item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:transparent;color:var(--ink);padding:12px;border-radius:11px}.command-item:hover,.command-item:focus-visible{background:var(--accent-soft);outline:0}.command-item-icon{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:16px;flex-shrink:0}.command-item-copy{flex:1;min-width:0}.command-item-copy strong{display:block;font-size:12px}.command-item-copy small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.command-item kbd{font-size:9px;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:3px 6px}.command-foot{display:flex;justify-content:space-between;gap:10px;padding:11px 18px;background:var(--bg);color:var(--muted);font-size:10px;border-top:1px solid var(--line)}.brief-export-btn{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.23);font-size:12px}.brief-export-btn:hover{background:rgba(255,255,255,.19)}
+@media(max-width:600px){.command-palette{padding:7vh 10px 16px}.command-search-row{padding:15px}.command-item{padding:10px}.command-foot{font-size:9px}}
+
+</style>
+</head>
+<body>
+<section id="loginGate" class="login-gate">
+  <div class="login-showcase">
+    <div class="login-brand"><div class="brandmark">✦</div><div><strong>Executive Hub</strong><small>COMMAND CENTER</small></div></div>
+    <div class="showcase-copy"><div class="showcase-kicker">YOUR DAY. IN CONTROL.</div><h1>Lead the details.<br><em>Own the day.</em></h1><p>A refined workspace for tasks, meetings, people, and the follow-through that makes everything work.</p><div class="showcase-pills"><span>✦ Daily clarity</span><span>◷ Meeting-ready</span><span>✓ Follow-through</span></div></div>
+    <div class="showcase-footer">PRIVATE WORKSPACE · LOCAL DATA STORAGE</div>
+  </div>
+  <div class="login-side">
+    <button class="theme-btn-login" id="loginThemeBtn" type="button" title="Switch to dark theme" aria-label="Switch to dark theme">&#9790;</button>
+    <div class="login-card">
+      <div class="login-mobile-brand"><div class="brandmark">✦</div><strong>Executive Hub</strong></div>
+      <div class="login-eyebrow" id="loginEyebrow">WELCOME BACK</div>
+      <h2 id="loginHeading">Sign in to your hub</h2>
+      <p id="loginDescription">Sign in to securely access your workspace on any device.</p>
+      <div id="loginMessage" aria-live="polite"></div>
+      <form id="signInForm">
+        <div class="login-field"><label for="signInUsername">Email address</label><input id="signInUsername" type="email" autocomplete="username" required maxlength="254" placeholder="you@example.com"></div>
+        <div class="login-field"><label for="signInPassword">Password</label><input id="signInPassword" type="password" autocomplete="current-password" required minlength="8" placeholder="Your password"></div>
+        <div class="login-forgot"><button type="button" id="forgotPasswordLink">Forgot password?</button><button type="button" id="forgotUsernameLink">Forgot username?</button></div>
+        <button class="login-submit" type="submit">Sign in <span>→</span></button>
+      </form>
+      <form id="createAccountForm" class="hidden">
+        <div class="login-field"><label for="createUsername">Username</label><input id="createUsername" autocomplete="username" required minlength="3" maxlength="32" pattern="[A-Za-z0-9_.-]+" placeholder="3–32 letters, numbers, . _ -"></div>
+        <div class="login-field"><label for="createPassword">Password</label><input id="createPassword" type="password" autocomplete="new-password" required minlength="8" placeholder="At least 8 characters"></div>
+        <div class="login-field"><label for="createPasswordConfirm">Confirm password</label><input id="createPasswordConfirm" type="password" autocomplete="new-password" required minlength="8" placeholder="Enter password again"></div>
+        <div class="login-field"><label for="createEmail">Recovery email</label><input id="createEmail" type="email" autocomplete="email" required maxlength="120" placeholder="Used to find your username"></div>
+        <div class="login-help">Use your email for sign-in and account recovery. Password resets are handled by Supabase Auth.</div>
+        <button class="login-submit" type="submit">Create account <span>→</span></button>
+      </form>
+      <form id="forgotPasswordForm" class="hidden" novalidate>
+        <div class="login-field"><label for="fpUsername">Username</label><input id="fpUsername" autocomplete="username" maxlength="32" placeholder="Your username"></div>
+        <div id="fpStep2" class="hidden">
+          <div class="login-question" id="fpQuestion"></div>
+          <div class="login-field"><label for="fpAnswer">Your answer</label><input id="fpAnswer" autocomplete="off" maxlength="120" placeholder="Answer to your security question"></div>
+          <div class="login-field"><label for="fpNew">New password</label><input id="fpNew" type="password" autocomplete="new-password" placeholder="At least 8 characters"></div>
+          <div class="login-field"><label for="fpConfirm">Confirm new password</label><input id="fpConfirm" type="password" autocomplete="new-password" placeholder="Enter password again"></div>
+        </div>
+        <button class="login-submit" type="submit"><i id="fpSubmitLabel" style="font-style:normal">Continue</i> <span>&rarr;</span></button>
+        <button class="login-back" type="button" data-recovery-back>&larr; Back to sign in</button>
+      </form>
+      <form id="forgotUsernameForm" class="hidden" novalidate>
+        <div class="login-field"><label for="fuEmail">Recovery email</label><input id="fuEmail" type="email" autocomplete="email" maxlength="120" placeholder="The email you added to your account"></div>
+        <div id="fuStep2" class="hidden">
+          <div class="login-question" id="fuQuestion"></div>
+          <div class="login-field"><label for="fuAnswer">Your answer</label><input id="fuAnswer" autocomplete="off" maxlength="120" placeholder="Answer to your security question"></div>
+        </div>
+        <button class="login-submit" type="submit"><i id="fuSubmitLabel" style="font-style:normal">Continue</i> <span>&rarr;</span></button>
+        <button class="login-back" type="button" data-recovery-back>&larr; Back to sign in</button>
+      </form>
+      <div class="login-switch"><span id="loginSwitchText">New to Executive Hub?</span> <button type="button" id="loginSwitchBtn">Create an account</button></div>
+      <div class="login-security">Cloud sign-in powered by Supabase. Your workspace is stored in your account and protected by database access policies. Use only the project URL and public anon/publishable key in this app.</div>
+    </div>
+    <div class="login-copyright">EXECUTIVE HUB <span>•</span> BURGUNDY EDITION</div>
+  </div>
+</section>
+<div class="shell hidden" id="workspaceShell">
+<aside class="sidebar">
+  <div class="brand"><div class="brandmark">✦</div><div><strong>Executive Hub</strong><small>COMMAND CENTER</small></div></div>
+  <div><div class="nav-label">Workspace</div><nav class="nav" id="mainNav">
+    <button class="active" data-page="dashboard"><span class="navicon">▦</span>Dashboard</button>
+    <button data-page="agenda"><span class="navicon">▤</span>Calendar & agenda</button>
+    <button data-page="tasks"><span class="navicon">✓</span>Task checklist</button>
+    <button data-page="notes"><span class="navicon">▧</span>Meeting notes</button>
+    <button data-page="contacts"><span class="navicon">♙</span>Contact directory</button>
+    <button data-page="strategy"><span class="navicon">◎</span>Strategy Room</button>
+    <button data-page="operations"><span class="navicon">↗</span>Operations Center</button>
+  </nav></div>
+  <div class="sidebar-bottom"><strong>Personal workspace</strong><span>Saved locally in this browser</span></div>
+</aside>
+<main class="main">
+  <header class="topbar">
+    <div><div class="eyebrow">Your workspace</div><h1 class="page-title" id="pageTitle">Good day, let's get organized.</h1><p class="page-sub" id="pageSubtitle">Your priorities, meetings, and follow-ups in one place.</p></div>
+    <div class="top-actions"><div class="clock"><strong id="clockTime">--:--</strong><small id="clockDate">Loading date…</small></div><button class="iconbtn" id="themeToggleBtn" type="button" title="Switch to dark theme" aria-label="Switch to dark theme">&#9790;</button><button class="iconbtn mobile-menu" id="mobileNavBtn" type="button" title="Switch view">☰</button><button class="avatar avatar-button" id="userAvatar" type="button" aria-label="Open profile settings" title="Profile settings">EA</button><input id="profilePhotoInput" type="file" accept="image/*" class="hidden" aria-label="Upload profile photo"><div id="profileMenu" class="profile-menu hidden" role="dialog" aria-label="Profile settings"><div class="profile-menu-head"><strong>Profile settings</strong><button type="button" id="closeProfileMenu" aria-label="Close profile settings">×</button></div><div class="profile-preview-row"><div class="profile-preview" id="profilePreview">EA</div><div><strong id="profileDisplayName">Your profile</strong><small>Personalize your Executive Hub</small></div></div><label class="profile-field-label" for="profileNameInput">Display name</label><input id="profileNameInput" maxlength="60" placeholder="How should we call you?"><div class="profile-actions"><button type="button" class="primary" id="saveProfileNameBtn">Save name</button><button type="button" class="outline" id="uploadProfilePhotoBtn">Upload photo</button><button type="button" class="outline" id="removeProfilePhotoBtn">Remove photo</button></div><div class="profile-section"><label class="profile-field-label" for="profileTZSelect">Time zone</label><select id="profileTZSelect" class="profile-select"></select><small class="profile-tz-now" id="profileTZNow"></small></div><div class="profile-section"><label class="profile-field-label" for="profileThemeSelect">Appearance</label><select id="profileThemeSelect" class="profile-select"><option value="system">Match my device</option><option value="light">Light</option><option value="dark">Dark</option></select></div><details class="profile-section profile-recovery" id="recoveryDetails"><summary>Account recovery <span id="recoveryStatus"></span></summary><label for="recEmail">Recovery email</label><input id="recEmail" type="email" maxlength="120" placeholder="you@example.com"><label for="recQuestion">Security question</label><select id="recQuestion"></select><label for="recAnswer">Answer</label><input id="recAnswer" autocomplete="off" maxlength="120" placeholder="Enter your answer"><label for="recPassword">Current password (to confirm)</label><input id="recPassword" type="password" autocomplete="current-password"><button type="button" class="primary" id="saveRecoveryBtn">Save recovery details</button></details><p class="profile-note">Your profile photo is stored in this browser for this account. A small image works best.</p></div><button class="outline" id="signOutBtn" type="button" style="padding:8px 10px;font-size:12px">Sign out</button></div>
+  </header>
+  <div class="searchbar"><div class="searchbox"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search tasks, meetings, notes, and contacts…"></div><button class="primary" id="quickAddBtn" type="button">＋ Quick add</button></div>
+  <section id="dashboardPage" class="section-page">
+    <div class="welcome"><div><h2 id="welcomeHeadline">A clear plan makes a calmer day.</h2><p id="welcomeSub">Here’s your daily briefing. Let’s make today count.</p></div><div class="welcome-date"><span>TODAY IS</span><strong id="welcomeDate">—</strong></div></div>
+    <div class="stats">
+      <div class="stat"><div class="stat-top"><span>Open tasks</span><span class="stat-icon">✓</span></div><div class="stat-num" id="statOpen">0</div><div class="stat-foot" id="statOpenFoot">Tasks needing attention</div></div>
+      <div class="stat"><div class="stat-top"><span>Meetings today</span><span class="stat-icon">◷</span></div><div class="stat-num" id="statMeetings">0</div><div class="stat-foot">Scheduled in your agenda</div></div>
+      <div class="stat"><div class="stat-top"><span>Overdue tasks</span><span class="stat-icon">!</span></div><div class="stat-num" id="statOverdue">0</div><div class="stat-foot">Past deadline, still open</div></div>
+      <div class="stat"><div class="stat-top"><span>Completion rate</span><span class="stat-icon">↗</span></div><div class="stat-num" id="statRate">0%</div><div class="stat-foot" id="statRateFoot">Your task progress</div></div>
+    </div>
+
+    <section class="command-deck">
+      <div class="deck-top">
+        <div><span class="eyebrow">THE EXECUTIVE EDGE</span><h2>Your day, intentionally designed.</h2><p>Set a direction, protect focus time, and make progress visible.</p></div>
+        <div class="deck-actions"><button class="glass-btn" id="openCommandPalette" type="button">⌘ Command menu</button><button class="brief-export-btn" id="dailyBriefBtn" type="button">✦ Daily brief</button><button class="glass-btn" id="exportDataBtn" type="button">↗ Export backup</button><button class="glass-btn" id="importDataBtn" type="button">↙ Restore backup</button><input id="importDataFile" type="file" accept="application/json,.json" class="hidden"></div>
+      </div>
+      <div class="deck-grid">
+        <div class="deck-panel intention-panel">
+          <div class="panel-label"><span>✦ DAILY INTENTION</span><span class="live-dot">● LIVE</span></div>
+          <label for="dailyIntention" class="intention-prompt">What would make today a success?</label>
+          <div class="intention-row"><input id="dailyIntention" maxlength="180" placeholder="e.g. Make the decision, not just the deck…"><button class="accent-light" id="saveIntentionBtn" type="button">Save</button></div>
+          <div class="microcopy">A clear priority beats a longer to-do list.</div>
+        </div>
+        <div class="deck-panel focus-panel">
+          <div class="panel-label"><span>◷ FOCUS STUDIO</span><span id="focusStatus">READY WHEN YOU ARE</span></div>
+          <div class="focus-clock" id="focusClock">25:00</div>
+          <div class="focus-caption" id="focusCaption">One thing. Full attention.</div>
+          <div class="focus-controls"><button class="focus-main" id="focusStartBtn" type="button">▶ Start focus</button><button class="focus-small" id="focusResetBtn" type="button" aria-label="Reset timer">↺</button><select id="focusDuration" aria-label="Focus duration"><option value="15">15 min</option><option value="25" selected>25 min</option><option value="45">45 min</option><option value="60">60 min</option></select></div>
+        </div>
+        <div class="deck-panel progress-panel">
+          <div class="panel-label"><span>↗ MOMENTUM</span><span>THIS SESSION</span></div>
+          <div class="momentum-number" id="momentumNumber">0%</div>
+          <div class="momentum-track"><span id="momentumBar"></span></div>
+          <p id="momentumText">Start by completing one meaningful task.</p>
+          <div class="momentum-foot"><span>Completed tasks</span><strong id="momentumDone">0</strong></div>
+        </div>
+      </div>
+      <div class="capture-row"><div class="capture-icon">✎</div><div class="capture-copy"><strong>Thoughts move fast. Capture them faster.</strong><span>Drop a task here without opening another form.</span></div><form id="quickCaptureForm"><input id="quickCaptureInput" maxlength="180" placeholder="Add a task, follow-up, or next action…" aria-label="Quick capture task"><select id="quickCapturePriority" aria-label="Task priority"><option>Medium</option><option>High</option><option>Low</option></select><button class="primary" type="submit">＋ Capture</button></form></div>
+    </section>
+
+    <div class="layout">
+      <div class="column">
+        <section class="card"><div class="card-head"><div><h2>Today's agenda</h2><p>Your schedule, at a glance</p></div><button class="text-btn" data-goto="agenda">View calendar →</button></div><div id="dashboardAgenda" class="agenda-list"></div></section>
+        <section class="card"><div class="card-head"><div><h2>Priority checklist</h2><p>The next actions to move forward</p></div><button class="text-btn" data-goto="tasks">All tasks →</button></div><div id="dashboardTasks" class="task-list"></div><button class="outline" style="width:100%;margin-top:12px" data-action="new-task" type="button">＋ Add a task</button></section>
+      </div>
+      <div class="column right-column">
+        <section class="card"><div class="card-head"><div><h2>Next 7 days</h2><p>Select a date to preview your agenda</p></div><button class="text-btn" data-goto="agenda">Full view →</button></div><div class="week-strip" id="weekStrip"></div><div id="weekPreview" class="agenda-list"></div></section>
+        <section class="card"><div class="card-head"><div><h2>Quick notes</h2><p>Recent meeting notes</p></div><button class="text-btn" data-goto="notes">Open notes →</button></div><div id="dashboardNotes" class="notes-list"></div><button class="outline" style="width:100%;margin-top:12px" data-action="new-note" type="button">＋ Capture a note</button></section>
+        <section class="card"><div class="card-head"><div><h2>Key contacts</h2><button class="text-btn" data-goto="contacts">Directory →</button></div></div><div id="dashboardContacts" class="contact-list"></div><button class="outline" style="width:100%;margin-top:10px" data-action="new-contact" type="button">＋ Add contact</button></section>
+      </div>
+    </div>
+  </section>
+  <section id="strategyPage" class="section-page hidden">
+    <section class="strategy-suite">
+      <div class="suite-heading"><div><span class="suite-kicker">THE STRATEGY ROOM</span><h2>Work on what moves the needle.</h2><p>Turn big outcomes into visible progress, one deliberate day at a time.</p></div><button class="suite-add" id="addGoalBtn" type="button">＋ Add outcome</button></div>
+      <div class="strategy-grid">
+        <article class="strategy-card outcomes-card"><div class="strategy-card-head"><div><span class="strategy-icon">◎</span><strong>Strategic outcomes</strong><small>Keep your most important goals in sight</small></div><span class="count-pill" id="goalCount">0 active</span></div><div id="goalsList" class="goals-list"></div><div class="empty-goals" id="goalsEmpty"><span>✧</span><strong>Make the important visible.</strong><p>Add up to three outcomes you want to move forward.</p></div></article>
+        <article class="strategy-card rituals-card"><div class="strategy-card-head"><div><span class="strategy-icon">✦</span><strong>Daily rituals</strong><small>Small actions. Compounding returns.</small></div><span class="count-pill" id="ritualCount">0 / 0</span></div><div id="ritualsList" class="rituals-list"></div><div class="ritual-add"><input id="newRitualInput" maxlength="80" placeholder="Add a daily ritual…"><button id="addRitualBtn" type="button" aria-label="Add daily ritual">＋</button></div><div class="ritual-foot"><span id="ritualMessage">Design a day you can repeat.</span><button id="resetRitualsBtn" type="button">Reset today</button></div></article>
+        <article class="strategy-card briefing-card"><div class="strategy-card-head"><div><span class="strategy-icon">✧</span><strong>Executive briefing</strong><small>A useful read on your workload</small></div><span class="briefing-tag">YOUR SIGNALS</span></div><div id="executiveBriefing" class="briefing-content"></div><button class="briefing-refresh" id="refreshBriefingBtn" type="button">↻ Refresh briefing</button></article>
+      </div>
+    </section>
+  </section>
+  <section id="operationsPage" class="section-page hidden">
+    <section class="ops-suite">
+  <div class="suite-heading"><div><span class="suite-kicker">OPERATIONS CENTER</span><h2>Close loops. Make decisions. Move forward.</h2><p>Keep promises, decisions, and weekly progress out of your head and in one place.</p></div></div>
+  <div class="ops-grid">
+    <article class="ops-card"><div class="ops-head"><div><span class="ops-icon">↗</span><strong>Follow-up pipeline</strong><small>Promises and pending replies</small></div><button class="ops-add" id="addFollowupBtn" type="button">＋ Add</button></div>
+      <form id="followupForm" class="ops-form hidden"><input id="followupTitle" maxlength="140" placeholder="What needs a follow-up?" required><input id="followupPerson" maxlength="80" placeholder="Person / organization"><input id="followupDate" type="date" aria-label="Follow-up date"><select id="followupStatus"><option value="Waiting">Waiting for reply</option><option value="To send">I need to reach out</option><option value="Done">Completed</option></select><button class="primary" type="submit">Save follow-up</button></form>
+      <div id="followupsList" class="ops-list"></div><div id="followupsEmpty" class="ops-empty">No open loops. Add a follow-up when you need to remember a promise or pending reply.</div>
+    </article>
+    <article class="ops-card"><div class="ops-head"><div><span class="ops-icon">◇</span><strong>Decision journal</strong><small>Capture the why, not just the what</small></div><button class="ops-add" id="addDecisionBtn" type="button">＋ Add</button></div>
+      <form id="decisionForm" class="ops-form hidden"><input id="decisionTitle" maxlength="140" placeholder="What decision was made?" required><textarea id="decisionReason" maxlength="700" rows="2" placeholder="Context, rationale, and trade-offs…"></textarea><input id="decisionOwner" maxlength="80" placeholder="Decision owner"><button class="primary" type="submit">Record decision</button></form>
+      <div id="decisionsList" class="ops-list"></div><div id="decisionsEmpty" class="ops-empty">Keep a short record of important decisions so future-you remembers the reasoning.</div>
+    </article>
+    <article class="ops-card review-card"><div class="ops-head"><div><span class="ops-icon">✧</span><strong>Weekly review</strong><small>A reset for your next chapter</small></div><span class="ops-badge">REFLECT</span></div>
+      <div class="review-stats" id="reviewStats"></div>
+      <label class="review-label" for="reviewWins">Wins worth remembering</label><textarea id="reviewWins" rows="2" maxlength="500" placeholder="What went well this week?"></textarea>
+      <label class="review-label" for="reviewImprove">What to improve</label><textarea id="reviewImprove" rows="2" maxlength="500" placeholder="What will you change next week?"></textarea>
+      <label class="review-label" for="reviewNext">Top priority for next week</label><input id="reviewNext" maxlength="180" placeholder="The one outcome that matters most">
+      <button id="saveReviewBtn" class="primary review-save" type="button">Save weekly review</button><div id="reviewSavedAt" class="review-saved"></div>
+    </article>
+  </div>
+</section>
+  </section>
+  <section id="agendaPage" class="section-page hidden">
+    <div class="section-toolbar"><div><h2>Calendar & agenda</h2><p class="page-sub">Manage meetings, appointments, and time blocks.</p></div><button class="primary" data-action="new-event" type="button">＋ Add event</button></div>
+    <section class="card"><div class="card-head"><div><h2 id="agendaMonthTitle">This week</h2><p>Choose a date, then review or edit its schedule.</p></div><div style="display:flex;gap:6px"><button class="iconbtn" id="agendaPrev" type="button" aria-label="Previous week">‹</button><button class="outline" id="agendaToday" type="button">Today</button><button class="iconbtn" id="agendaNext" type="button" aria-label="Next week">›</button></div></div><div class="week-strip" id="agendaWeekStrip"></div><div id="agendaDayList" class="agenda-list"></div></section>
+    <section class="card"><div class="card-head"><div><h2>All upcoming events</h2><p>Sorted by date and time</p></div></div><div id="allEventsList" class="agenda-list"></div></section>
+  </section>
+  <section id="tasksPage" class="section-page hidden">
+    <div class="section-toolbar"><div><h2>Task checklist</h2><p class="page-sub">Capture actions, set priorities, and keep follow-ups moving.</p></div><button class="primary" data-action="new-task" type="button">＋ Add task</button></div>
+    <section class="card"><div class="card-head"><h2>Your tasks</h2><div class="search-filter"><select id="taskStatusFilter" aria-label="Filter task status"><option value="all">All statuses</option><option value="open">Open</option><option value="done">Completed</option></select><select id="taskPriorityFilter" aria-label="Filter task priority"><option value="all">All priorities</option><option>High</option><option>Medium</option><option>Low</option></select></div></div><div id="allTasksList" class="task-list"></div></section>
+  </section>
+  <section id="notesPage" class="section-page hidden">
+    <div class="section-toolbar"><div><h2>Meeting notes</h2><p class="page-sub">Capture decisions, discussion points, and action items.</p></div><button class="primary" data-action="new-note" type="button">＋ New note</button></div>
+    <section class="card"><div id="noteFormWrap" class="inline-form hidden"><form id="noteForm"><input id="noteId" type="hidden"><div class="field"><label for="noteTitle">Meeting / note title *</label><input id="noteTitle" required maxlength="120" placeholder="e.g. Weekly operations sync"></div><div class="form-grid"><div class="field"><label for="noteDate">Date</label><input id="noteDate" type="date"></div><div class="field"><label for="noteAttendees">Attendees</label><input id="noteAttendees" maxlength="250" placeholder="Names separated by commas"></div></div><div class="field"><label for="noteBody">Notes, decisions, action items</label><textarea id="noteBody" maxlength="10000" placeholder="Key discussion points…"></textarea></div><div class="inline-form-actions"><button class="outline" type="button" data-action="cancel-note">Cancel</button><button class="primary" type="submit">Save note</button></div></form></div><div id="allNotesList" class="notes-list"></div></section>
+  </section>
+  <section id="contactsPage" class="section-page hidden">
+    <div class="section-toolbar"><div><h2>Contact directory</h2><p class="page-sub">Keep important people and follow-up details close.</p></div><button class="primary" data-action="new-contact" type="button">＋ Add contact</button></div>
+    <section class="card"><div id="contactFormWrap" class="inline-form hidden"><form id="contactForm"><input id="contactId" type="hidden"><div class="form-grid"><div class="field"><label for="contactName">Full name *</label><input id="contactName" required maxlength="120"></div><div class="field"><label for="contactRole">Role / company</label><input id="contactRole" maxlength="160" placeholder="e.g. Finance Manager, Acme"></div><div class="field"><label for="contactEmail">Email</label><input id="contactEmail" type="email" maxlength="200"></div><div class="field"><label for="contactPhone">Phone</label><input id="contactPhone" maxlength="60"></div><div class="field span-2"><label for="contactNotes">Notes / follow-up context</label><textarea id="contactNotes" maxlength="2000"></textarea></div></div><div class="inline-form-actions"><button class="outline" type="button" data-action="cancel-contact">Cancel</button><button class="primary" type="submit">Save contact</button></div></form></div><div id="allContactsList" class="contact-list"></div></section>
+  </section>
+  <div class="footer-note" id="cloudStatus">Executive Hub · Connecting to your cloud workspace…</div>
+</main>
+</div>
+<div id="commandPalette" class="command-palette hidden" role="dialog" aria-modal="true" aria-label="Command menu"><div class="command-dialog"><div class="command-search-row"><span>⌕</span><input id="commandSearch" type="search" placeholder="What would you like to do?" autocomplete="off" aria-label="Search commands"><kbd>ESC</kbd></div><div class="command-label">QUICK ACTIONS</div><div id="commandResults" class="command-results"></div><div class="command-foot"><span>Navigate your workspace without losing momentum.</span><span>Ctrl/⌘ K to open</span></div></div></div>
+<div id="modalMount"></div><div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+<div id="photoCropModal" class="photo-crop-modal hidden" role="dialog" aria-modal="true" aria-labelledby="photoCropTitle">
+  <div class="photo-crop-dialog">
+    <div class="photo-crop-head"><div><span class="suite-kicker">PROFILE PHOTO</span><h2 id="photoCropTitle">Crop your photo</h2><p>Drag to reposition, zoom to resize, then save your perfect fit.</p></div><button type="button" id="closePhotoCrop" aria-label="Close crop editor">×</button></div>
+    <div class="photo-crop-stage" id="photoCropStage"><img id="photoCropImage" alt="Photo crop preview" draggable="false"><div class="crop-frame" aria-hidden="true"></div></div>
+    <div class="photo-crop-controls"><label for="photoZoom">Zoom <input id="photoZoom" type="range" min="1" max="3" value="1" step="0.01"></label><button type="button" id="photoCenterBtn" class="outline">Reset position</button></div>
+    <div class="photo-crop-foot"><span>Square crop · drag photo to reposition</span><div><button type="button" id="cancelPhotoCrop" class="outline">Cancel</button><button type="button" id="savePhotoCrop" class="primary">Save photo</button></div></div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// CONFIGURE THESE TWO VALUES from Supabase → Project Settings → API.
+// Use the Project URL and anon/publishable key only. NEVER put a service_role key here.
+
+window.EXECUTIVE_HUB_SUPABASE = {
+  url: "https://nxmsfsmuxdoguidvqxhj.supabase.co",
+  anonKey: "sb_publishable_nrjSjfE78cTMVh5FcM5iJQ_qZsqqvVQ"
+};
+// Refresh recovery and safe navigation: preserve current account data before reload,
+// and prevent browser-default form submissions from buttons in dynamically rendered panels.
+(function(){
+  try{
+    document.querySelectorAll("button:not([type])").forEach(b=>b.setAttribute("type","button"));
+    document.addEventListener("submit",function(e){
+      const form=e.target;
+      if(form && form.id!=="signInForm" && form.id!=="createAccountForm"){
+        // Known forms have their own handlers; this is only a last-resort guard
+        // against an unintended full-page navigation.
+        if(!form.dataset.allowNativeSubmit){e.preventDefault()}
+      }
+    },true);
+    window.addEventListener("beforeunload",function(){
+      try{
+        if(typeof saveData==="function" && typeof data!=="undefined" && data && typeof currentUsername!=="undefined" && currentUsername) saveData();
+      }catch(err){console.warn("Could not persist workspace before navigation",err)}
+    });
+    window.addEventListener("pageshow",function(){
+      try{
+        if(typeof currentUsername!=="undefined" && currentUsername && typeof renderAll==="function"){
+          renderAll();
+          if(typeof refreshProfileUI==="function")refreshProfileUI();
+          if(typeof renderStrategy==="function")renderStrategy();
+          if(typeof renderOps==="function")renderOps();
+        }
+      }catch(err){console.warn("Workspace restore refresh failed",err)}
+    });
+  }catch(err){console.error("Refresh recovery setup failed",err)}
+})();
+
+(() => {
+"use strict";
+const $ = id => document.getElementById(id);
+const STORAGE_KEY = "executiveHubData_v1";
+const todayKey = () => {const d=tzNow();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`};
+const uid = () => (crypto?.randomUUID ? crypto.randomUUID() : "id-"+Date.now()+"-"+Math.random().toString(36).slice(2,9));
+const escapeHTML = v => String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let activeTZ=(function(){try{return Intl.DateTimeFormat().resolvedOptions().timeZone||null}catch(_){return null}})();
+function detectTZ(){try{return Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(_){return ""}}
+// Returns a Date whose local fields (year, hour, ...) show the wall-clock time in the active time zone.
+function tzNow(){if(!activeTZ)return new Date();try{const parts=new Intl.DateTimeFormat("en-CA",{timeZone:activeTZ,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"}).formatToParts(new Date());const g=t=>Number(parts.find(p=>p.type===t).value);return new Date(g("year"),g("month")-1,g("day"),g("hour"),g("minute"),g("second"))}catch(_){return new Date()}}
+function tzShort(){try{const p=new Intl.DateTimeFormat(undefined,{timeZone:activeTZ||undefined,timeZoneName:"short"}).formatToParts(new Date()).find(x=>x.type==="timeZoneName");return p?p.value:(activeTZ||"")}catch(_){return activeTZ||""}}
+const defaults = {tasks:[],events:[],notes:[],contacts:[]};
+let data = loadData(), selectedDate=todayKey(), agendaWeekStart=startOfWeek(tzNow()), searchQuery="", toastTimer=null;
+
+const USERS_KEY="executiveHubUsers_v1", SESSION_KEY="executiveHubSession_v1";
+let currentUsername=null, cloudUser=null, cloudReady=false, cloudSaveTimer=null, cloudChannel=null, cloudLoading=false;
+const cloudConfig=window.EXECUTIVE_HUB_SUPABASE||{};
+const cloudConfigured=!!(cloudConfig.url&&cloudConfig.anonKey&&!cloudConfig.url.includes("YOUR_")&&!cloudConfig.anonKey.includes("YOUR_"));
+const supabase=(cloudConfigured&&window.supabase)?window.supabase.createClient(cloudConfig.url,cloudConfig.anonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}}):null;
+function readUsers(){try{return JSON.parse(localStorage.getItem(USERS_KEY)||"{}")}catch{return {}}}
+function writeUsers(u){try{localStorage.setItem(USERS_KEY,JSON.stringify(u));return true}catch{return false}}
+function authMessage(msg,ok=false){$("loginMessage").innerHTML=msg?`<div class="${ok?"login-success":"login-error"}">${escapeHTML(msg)}</div>`:""}
+function setAuthMode(create){hideRecoveryForms();$("signInForm").classList.toggle("hidden",create);$("createAccountForm").classList.toggle("hidden",!create);$("loginEyebrow").textContent=create?"YOUR SPACE STARTS HERE":"WELCOME BACK";$("loginHeading").textContent=create?"Create your cloud account":"Sign in to your hub";$("loginDescription").textContent=create?"One account for your laptop, phone, tablet, and desktop.":"Your command center, available across your devices.";$("loginSwitchText").textContent=create?"Already have an account?":"New to Executive Hub?";$("loginSwitchBtn").textContent=create?"Sign in":"Create an account";authMessage("")}
+function userDataKey(username){return "executiveHubData_v1_"+String(username||"").toLowerCase()}
+function localWorkspaceForMigration(username){try{const raw=localStorage.getItem(userDataKey(username));if(raw)return JSON.parse(raw)}catch(_){}return {...defaults}}
+function loadUserWorkspace(username){try{const raw=localStorage.getItem(userDataKey(username));const x=raw?JSON.parse(raw):null;data=x?{...defaults,...x}:{...defaults}}catch{data={...defaults}}}
+function setCloudStatus(message,isError=false){const el=$("cloudStatus");if(el){el.textContent=message;el.style.color=isError?"var(--red)":""}}
+function localSave(username){try{localStorage.setItem(userDataKey(username),JSON.stringify(data));return true}catch{return false}}
+async function cloudLoadOrMigrate(){if(!supabase||!cloudUser)return;cloudLoading=true;setCloudStatus("Loading secure cloud workspace…");try{const {data:row,error}=await supabase.from("user_workspaces").select("workspace,profile,updated_at").eq("user_id",cloudUser.id).maybeSingle();if(error)throw error;if(row&&row.workspace&&typeof row.workspace==="object"){data={...defaults,...row.workspace};try{localStorage.setItem(userDataKey(currentUsername),JSON.stringify(data))}catch{}if(row.profile&&typeof row.profile==="object")localStorage.setItem(profileKey(),JSON.stringify(row.profile));setCloudStatus("☁ Synced · Changes save to your account");}
+else {const legacy=localWorkspaceForMigration(currentUsername);data={...defaults,...legacy};const oldProfile=getProfile();const {error:upErr}=await supabase.from("user_workspaces").upsert({user_id:cloudUser.id,workspace:data,profile:oldProfile,updated_at:new Date().toISOString()},{onConflict:"user_id"});if(upErr)throw upErr;localSave(currentUsername);setCloudStatus("☁ Cloud workspace ready · Existing local records imported");}
+}catch(err){console.error("Cloud workspace load failed",err);setCloudStatus("Cloud sync needs setup: "+(err.message||"check Supabase configuration and SQL"),true);toast("Could not load cloud data. Your local copy is preserved.")}finally{cloudLoading=false;renderAll();if(typeof renderStrategy==="function")renderStrategy();if(typeof renderOps==="function")renderOps();refreshProfileUI();applyUserTimezone();}}
+function saveData(){localSave(currentUsername);if(supabase&&cloudUser&&!cloudLoading){clearTimeout(cloudSaveTimer);setCloudStatus("Saving changes to cloud…");cloudSaveTimer=setTimeout(async()=>{try{const profile=getProfile();const {error}=await supabase.from("user_workspaces").upsert({user_id:cloudUser.id,workspace:data,profile,updated_at:new Date().toISOString()},{onConflict:"user_id"});if(error)throw error;setCloudStatus("☁ All changes synced · "+new Date().toLocaleTimeString([], {hour:"numeric",minute:"2-digit"}));}catch(err){console.error("Cloud save failed",err);setCloudStatus("Sync error — local changes kept. Check connection/settings.",true);toast("Cloud sync failed; your changes remain on this device.")}},450)}return true}
+async function enterWorkspace(user){cloudUser=user;currentUsername=(user.user_metadata&&user.user_metadata.username)||user.email||user.id;loadUserWorkspace(currentUsername);$("loginGate").classList.add("hidden");$("workspaceShell").classList.remove("hidden");$("userAvatar").textContent=initials(currentUsername);refreshProfileUI();renderAll();setPage("dashboard");await cloudLoadOrMigrate();startRealtimeSync();}
+function startRealtimeSync(){if(!supabase||!cloudUser)return;if(cloudChannel)supabase.removeChannel(cloudChannel);cloudChannel=supabase.channel("workspace-"+cloudUser.id).on("postgres_changes",{event:"*",schema:"public",table:"user_workspaces",filter:"user_id=eq."+cloudUser.id},payload=>{if(!payload.new||cloudLoading)return;data={...defaults,...(payload.new.workspace||{})};if(payload.new.profile)localStorage.setItem(profileKey(),JSON.stringify(payload.new.profile));localSave(currentUsername);renderAll();if(typeof renderStrategy==="function")renderStrategy();if(typeof renderOps==="function")renderOps();refreshProfileUI();setCloudStatus("☁ Updated from another device · "+new Date().toLocaleTimeString([], {hour:"numeric",minute:"2-digit"}));}).subscribe();}
+async function signOut(){if(supabase)await supabase.auth.signOut();if(cloudChannel&&supabase){supabase.removeChannel(cloudChannel);cloudChannel=null}cloudUser=null;currentUsername=null;$("workspaceShell").classList.add("hidden");$("loginGate").classList.remove("hidden");$("signInForm").reset();$("createAccountForm").reset();setAuthMode(false);setCloudStatus("Signed out");}
+$("loginSwitchBtn").addEventListener("click",()=>setAuthMode($("createAccountForm").classList.contains("hidden")));
+$("createAccountForm").addEventListener("submit",async e=>{e.preventDefault();if(!supabase)return authMessage("Cloud setup is incomplete. Add your Supabase Project URL and anon/publishable key in the configuration section of this HTML file.");const username=$("createUsername").value.trim(),password=$("createPassword").value,confirmPassword=$("createPasswordConfirm").value,email=$("createEmail").value.trim().toLowerCase();if(!/^[A-Za-z0-9_.-]{3,32}$/.test(username))return authMessage("Use 3–32 letters, numbers, dots, underscores, or hyphens for your display username.");if(password.length<8)return authMessage("Use a password with at least 8 characters.");if(password!==confirmPassword)return authMessage("Your passwords don't match.");if(!/^\S+@\S+\.\S+$/.test(email))return authMessage("Enter a valid email address.");const {data:result,error}=await supabase.auth.signUp({email,password,options:{data:{username,display_name:username}}});if(error)return authMessage(error.message);$("createAccountForm").reset();if(result.session){authMessage("Account created. Opening your cloud workspace…",true);await enterWorkspace(result.user)}else{setAuthMode(false);$("signInUsername").value=email;authMessage("Account created. Check your email to confirm the account, then sign in.",true)}});
+$("signInForm").addEventListener("submit",async e=>{e.preventDefault();if(!supabase)return authMessage("Cloud setup is incomplete. Add your Supabase Project URL and anon/publishable key in this HTML file.");const email=$("signInUsername").value.trim().toLowerCase(),password=$("signInPassword").value;const {data:result,error}=await supabase.auth.signInWithPassword({email,password});if(error)return authMessage(error.message);$("signInForm").reset();await enterWorkspace(result.user)});
+$("signOutBtn").addEventListener("click",signOut);
+// ===== Theme (light / dark / match device) =====
+const THEME_KEY="executiveHubTheme";
+function themePref(){try{return localStorage.getItem(THEME_KEY)||"system"}catch(_){return "system"}}
+function resolveTheme(p){return p==="system"?((window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light"):p}
+function updateThemeButtons(){const dark=document.documentElement.getAttribute("data-theme")==="dark";["themeToggleBtn","loginThemeBtn"].forEach(id=>{const b=$(id);if(b){b.innerHTML=dark?"&#9728;":"&#9790;";b.title=dark?"Switch to light theme":"Switch to dark theme";b.setAttribute("aria-label",b.title)}});const sel=$("profileThemeSelect");if(sel)sel.value=themePref()}
+function applyTheme(p){document.documentElement.setAttribute("data-theme",resolveTheme(p));updateThemeButtons()}
+function setThemePref(p){try{localStorage.setItem(THEME_KEY,p)}catch(_){}applyTheme(p)}
+function refreshThemeUI(){updateThemeButtons()}
+["themeToggleBtn","loginThemeBtn"].forEach(id=>$(id)?.addEventListener("click",()=>setThemePref(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark")));
+$("profileThemeSelect")?.addEventListener("change",e=>setThemePref(e.target.value));
+try{const mq=matchMedia("(prefers-color-scheme: dark)");const onMq=()=>{if(themePref()==="system")applyTheme("system")};if(mq.addEventListener)mq.addEventListener("change",onMq);else if(mq.addListener)mq.addListener(onMq)}catch(_){}
+applyTheme(themePref());
+
+// ===== Time zone (per account; defaults to this device's time zone) =====
+function applyUserTimezone(){const chosen=(getProfile().tz)||"";const tz=chosen||detectTZ();try{if(tz)new Intl.DateTimeFormat("en",{timeZone:tz});activeTZ=tz||null}catch(_){activeTZ=null}selectedDate=todayKey();agendaWeekStart=startOfWeek(tzNow());updateClock()}
+function tzList(){let l=[];try{l=Intl.supportedValuesOf("timeZone")}catch(_){}if(!l.length)l=["UTC","Australia/Brisbane","Australia/Sydney","Australia/Perth","Pacific/Auckland","Asia/Manila","Asia/Singapore","Asia/Tokyo","Asia/Dubai","Europe/London","Europe/Paris","America/New_York","America/Chicago","America/Denver","America/Los_Angeles"];return l}
+function tickTZNow(){const el=$("profileTZNow");if(el)el.textContent="Now: "+tzNow().toLocaleString(undefined,{weekday:"short",hour:"numeric",minute:"2-digit"})+" · "+tzShort()}
+function refreshTZUI(){const sel=$("profileTZSelect");if(!sel)return;if(!sel.dataset.filled){const det=detectTZ();sel.innerHTML='<option value="">Auto-detect ('+escapeHTML((det||"this device").replace(/_/g," "))+')</option>'+tzList().map(z=>'<option value="'+escapeHTML(z)+'">'+escapeHTML(z.replace(/_/g," "))+'</option>').join("");sel.dataset.filled="1"}sel.value=getProfile().tz||"";tickTZNow()}
+$("profileTZSelect")?.addEventListener("change",e=>{const p=getProfile();if(e.target.value)p.tz=e.target.value;else delete p.tz;try{localStorage.setItem(profileKey(),JSON.stringify(p))}catch(_){}saveData();applyUserTimezone();renderAll();tickTZNow();toast("Time zone updated.")});
+
+// ===== Account recovery (forgot password / forgot username) =====
+const QUESTIONS=["What was the name of your first pet?","In what city were you born?","What was your childhood nickname?","What was the name of your first school?","What was the make of your first car?","What is your mother's maiden name?"];
+function fillQuestions(id){const s=$(id);if(s)s.innerHTML=QUESTIONS.map(q=>'<option>'+escapeHTML(q)+'</option>').join("")}
+fillQuestions("createQuestion");fillQuestions("recQuestion");
+function normAnswer(v){return String(v||"").trim().toLowerCase().replace(/\s+/g," ")}
+const LOCK_KEY="executiveHubRecoveryLock_v1";
+function lockMinutes(){try{const s=JSON.parse(localStorage.getItem(LOCK_KEY)||"{}");return s.until&&s.until>Date.now()?Math.ceil((s.until-Date.now())/60000):0}catch(_){return 0}}
+function recordFail(){try{const s=JSON.parse(localStorage.getItem(LOCK_KEY)||"{}"),n=(s.fails||0)+1;localStorage.setItem(LOCK_KEY,JSON.stringify(n>=5?{fails:0,until:Date.now()+300000}:{fails:n}))}catch(_){}}
+function clearFails(){try{localStorage.removeItem(LOCK_KEY)}catch(_){}}
+function lockMessage(m){return "Too many incorrect answers. Try again in about "+m+" minute"+(m===1?"":"s")+"."}
+let fpUser=null,fuMatches=[];
+function resetRecoveryForms(){fpUser=null;fuMatches=[];$("forgotPasswordForm").reset();$("forgotUsernameForm").reset();$("fpStep2").classList.add("hidden");$("fuStep2").classList.add("hidden");$("fpUsername").readOnly=false;$("fuEmail").readOnly=false;$("fpSubmitLabel").textContent="Continue";$("fuSubmitLabel").textContent="Continue"}
+function hideRecoveryForms(){$("forgotPasswordForm")?.classList.add("hidden");$("forgotUsernameForm")?.classList.add("hidden");$("loginSwitchBtn")?.parentElement.classList.remove("hidden")}
+function showRecovery(kind){const typed=$("signInUsername").value.trim();$("signInForm").classList.add("hidden");$("createAccountForm").classList.add("hidden");resetRecoveryForms();$("forgotPasswordForm").classList.toggle("hidden",kind!=="password");$("forgotUsernameForm").classList.toggle("hidden",kind!=="username");$("loginSwitchBtn").parentElement.classList.add("hidden");$("loginEyebrow").textContent="ACCOUNT RECOVERY";$("loginHeading").textContent=kind==="password"?"Reset your password":"Find your username";$("loginDescription").textContent=kind==="password"?"Enter your username, then answer your security question.":"Enter your recovery email, then answer your security question.";authMessage("");if(kind==="password"&&typed)$("fpUsername").value=typed;setTimeout(()=>$(kind==="password"?"fpUsername":"fuEmail").focus(),0)}
+$("forgotPasswordLink")?.addEventListener("click",async()=>{if(!supabase)return authMessage("Configure Supabase first, then use email password recovery.");const typed=$("signInUsername").value.trim().toLowerCase();if(!typed)return authMessage("Enter your account email address first.");const {error}=await supabase.auth.resetPasswordForEmail(typed,{redirectTo:window.location.href});if(error)return authMessage(error.message);authMessage("If this email belongs to an account, a password reset link has been sent. Check your inbox.",true)});
+$("forgotUsernameLink")?.addEventListener("click",()=>authMessage("Cloud accounts sign in with their email address. If you forgot which email you used, check your Supabase Auth users or contact your administrator."));
+document.querySelectorAll("[data-recovery-back]").forEach(b=>b.addEventListener("click",()=>setAuthMode(false)));
+// Legacy local security-question recovery is intentionally disabled for cloud accounts.
+function refreshRecoveryUI(){if(!$("recEmail"))return;$("recoveryStatus").textContent="Managed by Supabase Auth";$("recEmail").value=cloudUser?.email||"";$("recAnswer").value="";$("recPassword").value=""}
+$("saveRecoveryBtn")?.addEventListener("click",()=>toast("Password and recovery are managed securely by Supabase Auth."));
+function nudgeRecovery(){}
+setInterval(()=>{if(!$("profileMenu").classList.contains("hidden"))tickTZNow()},30000);
+
+function loadData(){try{const x=JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");return {...defaults,...x}}catch{return {...defaults}}}
+function toast(msg){$("toast").textContent=msg;$("toast").classList.remove("hidden");clearTimeout(toastTimer);toastTimer=setTimeout(()=>$("toast").classList.add("hidden"),2400)}
+function dateObj(key){if(!key)return null;const [y,m,d]=key.split("-").map(Number);return new Date(y,m-1,d,12)}
+function dateKey(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`}
+function startOfWeek(d){const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-(x.getDay()+6)%7);return x}
+function fmtDate(key,opts={weekday:"short",month:"short",day:"numeric"}){const d=dateObj(key);return d?d.toLocaleDateString(undefined,opts):"No date"}
+function fmtTime(time){if(!time)return "Any time";const [h,m]=time.split(":").map(Number);const d=new Date();d.setHours(h,m,0,0);return d.toLocaleTimeString(undefined,{hour:"numeric",minute:"2-digit"})}
+function isOverdue(t){return t.due && t.due<todayKey()&&!t.done}
+function isToday(key){return key===todayKey()}
+function initials(name){return String(name||"?").trim().split(/\s+/).slice(0,2).map(x=>x[0]||"").join("").toUpperCase()}
+function setPage(page){document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));["dashboard","agenda","tasks","notes","contacts","strategy","operations"].forEach(p=>$(p+"Page").classList.toggle("hidden",p!==page));const titles={dashboard:["Good day, let's get organized.","Your priorities, meetings, and follow-ups in one place."],agenda:["Calendar & agenda","Make room for the work that matters."],tasks:["Task checklist","Small actions, consistent progress."],notes:["Meeting notes","Decisions and details, all in one place."],contacts:["Contact directory","Your working relationships, organized."],strategy:["Strategy Room","Track meaningful outcomes and daily rituals."],operations:["Operations Center","Manage follow-ups, decisions, and weekly reviews."]};$("pageTitle").textContent=titles[page][0];$("pageSubtitle").textContent=titles[page][1];if(page==="agenda")renderAgenda();if(page==="tasks")renderAllTasks();if(page==="notes")renderNotes();if(page==="contacts")renderContacts();if(page==="strategy"&&typeof renderStrategy==="function")renderStrategy();if(page==="operations"&&typeof renderOps==="function")renderOps()}
+function eventsOn(key){return data.events.filter(e=>e.date===key).sort((a,b)=>(a.time||"99:99").localeCompare(b.time||"99:99"))}
+function taskHTML(t,actions=true){return `<div class="task-row ${t.done?"done":""}"><input class="task-check" type="checkbox" data-task-toggle="${escapeHTML(t.id)}" ${t.done?"checked":""} aria-label="Complete ${escapeHTML(t.title)}"><div class="task-body"><div class="task-name">${escapeHTML(t.title)}</div><div class="task-detail"><span class="priority ${escapeHTML(t.priority)}">${escapeHTML(t.priority)}</span>${t.due?`<span class="${isOverdue(t)?"overdue":""}">${isOverdue(t)?"Overdue · ":"Due "}${escapeHTML(fmtDate(t.due,{month:"short",day:"numeric"}))}</span>`:""}${t.owner?`<span>· ${escapeHTML(t.owner)}</span>`:""}</div>${t.notes?`<div class="task-detail">${escapeHTML(t.notes)}</div>`:""}</div>${actions?`<div class="small-actions"><button class="outline" data-edit-task="${escapeHTML(t.id)}" type="button">Edit</button><button class="outline" data-delete-task="${escapeHTML(t.id)}" type="button" aria-label="Delete task">×</button></div>`:""}</div>`}
+function agendaHTML(e){return `<div class="agenda-item ${e.done?"is-done":""}"><div class="agenda-time">${escapeHTML(fmtTime(e.time))}</div><div class="agenda-line"></div><div><div class="agenda-title">${escapeHTML(e.title)}</div><div class="agenda-meta">${escapeHTML(e.location||"No location")}${e.attendees?" · "+escapeHTML(e.attendees):""}</div></div><span class="agenda-tag ${e.kind==="Personal"?"personal":e.kind==="External"?"external":""}">${escapeHTML(e.kind||"Meeting")}</span><div class="agenda-actions"><button class="outline mini" data-edit-event="${escapeHTML(e.id)}" type="button">Edit</button><button class="outline mini" data-delete-event="${escapeHTML(e.id)}" type="button">×</button></div></div>`}
+function noteHTML(n){return `<article class="note-item"><strong>${escapeHTML(n.title)}</strong><div class="note-meta"><span>${escapeHTML(n.date?fmtDate(n.date,{month:"short",day:"numeric",year:"numeric"}):"No date")}${n.attendees?" · "+escapeHTML(n.attendees):""}</span><span><button class="text-btn" data-edit-note="${escapeHTML(n.id)}" type="button">Edit</button> <button class="text-btn" data-delete-note="${escapeHTML(n.id)}" type="button">Delete</button></span></div><p>${escapeHTML(n.body||"No notes added.")}</p></article>`}
+function contactHTML(c){return `<div class="contact-row"><div class="contact-initials">${escapeHTML(initials(c.name))}</div><div class="contact-info"><strong>${escapeHTML(c.name)}</strong><small>${escapeHTML(c.role||"Contact")}${c.email?" · "+escapeHTML(c.email):""}${c.phone?" · "+escapeHTML(c.phone):""}</small>${c.notes?`<small>${escapeHTML(c.notes)}</small>`:""}</div><div class="small-actions"><button class="outline mini" data-edit-contact="${escapeHTML(c.id)}" type="button">Edit</button><button class="outline mini" data-delete-contact="${escapeHTML(c.id)}" type="button">×</button></div></div>`}
+function empty(title,sub){return `<div class="empty"><strong>${escapeHTML(title)}</strong>${escapeHTML(sub)}</div>`}
+function renderStats(){const open=data.tasks.filter(t=>!t.done).length,done=data.tasks.filter(t=>t.done).length,over=data.tasks.filter(isOverdue).length,meet=data.events.filter(e=>e.date===todayKey()&&e.kind!=="Personal").length,rate=data.tasks.length?Math.round(done/data.tasks.length*100):0;$("statOpen").textContent=open;$("statMeetings").textContent=meet;$("statOverdue").textContent=over;$("statRate").textContent=rate+"%";$("statOpenFoot").textContent=open?`${data.tasks.filter(t=>!t.done&&t.priority==="High").length} high-priority`: "All caught up";$("statRateFoot").textContent=`${done} of ${data.tasks.length} tasks completed`}
+function renderDashboard(){renderStats();const d=todayKey();$("welcomeDate").textContent=fmtDate(d,{weekday:"long",month:"long",day:"numeric"});const hour=tzNow().getHours();$("welcomeHeadline").textContent=hour<12?"Good morning. Let's get ahead of the day.":hour<18?"Good afternoon. Keep your momentum going.":"Good evening. Let's close the loop.";const todayEvents=eventsOn(d);$("dashboardAgenda").innerHTML=todayEvents.length?todayEvents.map(agendaHTML).join(""):empty("No events scheduled today","Add a meeting or time block to plan your day.");const tasks=data.tasks.filter(t=>!t.done).sort((a,b)=>Number(isOverdue(b))-Number(isOverdue(a))||({High:0,Medium:1,Low:2}[a.priority]||1)-({High:0,Medium:1,Low:2}[b.priority]||1)||(a.due||"9999").localeCompare(b.due||"9999")).slice(0,5);$("dashboardTasks").innerHTML=tasks.length?tasks.map(t=>taskHTML(t,false)).join(""):empty("You're all caught up","Add a task whenever something needs your attention.");renderWeekStrip($("weekStrip"),startOfWeek(tzNow()),true);renderWeekPreview();const recent=[...data.notes].sort((a,b)=>(b.updatedAt||"").localeCompare(a.updatedAt||"")).slice(0,2);$("dashboardNotes").innerHTML=recent.length?recent.map(noteHTML).join(""):empty("No meeting notes yet","Capture decisions and action items after a meeting.");const contacts=data.contacts.slice(0,3);$("dashboardContacts").innerHTML=contacts.length?contacts.map(contactHTML).join(""):empty("Your directory is empty","Add the people you work with most.");}
+function renderWeekStrip(container,start,selectDashboard){let out="";for(let i=0;i<7;i++){const d=new Date(start);d.setDate(start.getDate()+i);const key=dateKey(d),count=eventsOn(key).length+data.tasks.filter(t=>t.due===key&&!t.done).length;out+=`<button class="week-day ${key===selectedDate?"selected":""} ${isToday(key)?"today":""}" type="button" data-select-date="${key}" data-strip="${selectDashboard?"dashboard":"agenda"}"><span>${d.toLocaleDateString(undefined,{weekday:"short"})}</span><strong>${d.getDate()}</strong><i class="day-dot ${count?"":"none"}"></i></button>`}container.innerHTML=out}
+function renderWeekPreview(){const events=eventsOn(selectedDate);const tasks=data.tasks.filter(t=>t.due===selectedDate&&!t.done);let html=events.map(agendaHTML).join("")+tasks.map(t=>`<div class="agenda-item"><div class="agenda-time">Task</div><div class="agenda-line"></div><div><div class="agenda-title">${escapeHTML(t.title)}</div><div class="agenda-meta">Due ${escapeHTML(fmtDate(t.due))}</div></div><span class="agenda-tag">Task</span></div>`).join("");$("weekPreview").innerHTML=html||empty("Nothing scheduled",`No events or open tasks on ${fmtDate(selectedDate)}.`)}
+function renderAgenda(){const start=agendaWeekStart;$("agendaMonthTitle").textContent=`Week of ${fmtDate(dateKey(start),{month:"long",day:"numeric",year:"numeric"})}`;renderWeekStrip($("agendaWeekStrip"),start,false);const es=eventsOn(selectedDate);const ts=data.tasks.filter(t=>t.due===selectedDate&&!t.done);$("agendaDayList").innerHTML=(es.length||ts.length)?es.map(agendaHTML).join("")+ts.map(t=>`<div class="agenda-item"><div class="agenda-time">Task</div><div class="agenda-line"></div><div><div class="agenda-title">${escapeHTML(t.title)}</div><div class="agenda-meta">Task deadline · ${escapeHTML(t.priority)} priority</div></div><span class="agenda-tag">Task</span><div class="agenda-actions"><button class="outline mini" data-edit-task="${escapeHTML(t.id)}" type="button">Edit</button></div></div>`).join(""):empty("A little breathing room","No events or open tasks scheduled for this date.");const upcoming=[...data.events].sort((a,b)=>(a.date+" "+(a.time||"")).localeCompare(b.date+" "+(b.time||""))).filter(e=>e.date>=todayKey());$("allEventsList").innerHTML=upcoming.length?upcoming.map(e=>`<div class="agenda-item"><div class="agenda-time">${escapeHTML(fmtDate(e.date,{month:"short",day:"numeric"}))}<br>${escapeHTML(fmtTime(e.time))}</div><div class="agenda-line"></div><div><div class="agenda-title">${escapeHTML(e.title)}</div><div class="agenda-meta">${escapeHTML(e.location||"No location")}</div></div><span class="agenda-tag">${escapeHTML(e.kind||"Meeting")}</span><div class="agenda-actions"><button class="outline mini" data-edit-event="${escapeHTML(e.id)}" type="button">Edit</button><button class="outline mini" data-delete-event="${escapeHTML(e.id)}" type="button">×</button></div></div>`).join(""):empty("No upcoming events","Add an event to build your schedule.")}
+function renderAllTasks(){const q=searchQuery.toLowerCase(),status=$("taskStatusFilter").value,priority=$("taskPriorityFilter").value;const list=data.tasks.filter(t=>(!q||[t.title,t.notes,t.owner].join(" ").toLowerCase().includes(q))&&(status==="all"||(status==="open"?!t.done:t.done))&&(priority==="all"||t.priority===priority)).sort((a,b)=>Number(a.done)-Number(b.done)||Number(isOverdue(b))-Number(isOverdue(a))||(a.due||"9999").localeCompare(b.due||"9999"));$("allTasksList").innerHTML=list.length?list.map(t=>taskHTML(t)).join(""):empty("No matching tasks","Try another search or add a task.")}
+function renderNotes(){const q=searchQuery.toLowerCase(),list=[...data.notes].filter(n=>!q||[n.title,n.body,n.attendees].join(" ").toLowerCase().includes(q)).sort((a,b)=>(b.updatedAt||"").localeCompare(a.updatedAt||""));$("allNotesList").innerHTML=list.length?list.map(noteHTML).join(""):empty("No notes found","Create a note to capture a meeting's decisions and actions.")}
+function renderContacts(){const q=searchQuery.toLowerCase(),list=[...data.contacts].filter(c=>!q||[c.name,c.role,c.email,c.phone,c.notes].join(" ").toLowerCase().includes(q)).sort((a,b)=>a.name.localeCompare(b.name));$("allContactsList").innerHTML=list.length?list.map(contactHTML).join(""):empty("No contacts found","Add a contact to build your directory.")}
+function renderAll(){renderDashboard();if(!$("agendaPage").classList.contains("hidden"))renderAgenda();if(!$("tasksPage").classList.contains("hidden"))renderAllTasks();if(!$("notesPage").classList.contains("hidden"))renderNotes();if(!$("contactsPage").classList.contains("hidden"))renderContacts()}
+function updateClock(){const d=tzNow();$("clockTime").textContent=d.toLocaleTimeString(undefined,{hour:"2-digit",minute:"2-digit"});$("clockDate").textContent=d.toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"})+" \u00b7 "+tzShort()}
+function showForm(type,record=null){if(type==="task"){openTaskEditor(record);return}if(type==="event"){openEventEditor(record);return}if(type==="note"){setPage("notes");$("noteFormWrap").classList.remove("hidden");$("noteForm").reset();$("noteId").value=record?.id||"";$("noteTitle").value=record?.title||"";$("noteDate").value=record?.date||todayKey();$("noteAttendees").value=record?.attendees||"";$("noteBody").value=record?.body||"";$("noteTitle").focus();return}if(type==="contact"){setPage("contacts");$("contactFormWrap").classList.remove("hidden");$("contactForm").reset();$("contactId").value=record?.id||"";$("contactName").value=record?.name||"";$("contactRole").value=record?.role||"";$("contactEmail").value=record?.email||"";$("contactPhone").value=record?.phone||"";$("contactNotes").value=record?.notes||"";$("contactName").focus()}}
+function openTaskEditor(t=null){$("modalMount").innerHTML=`<div class="modal-backdrop" style="position:fixed;inset:0;background:#15192b77;display:grid;place-items:center;padding:18px;z-index:30"><section class="card" role="dialog" aria-modal="true" aria-labelledby="editTaskTitle" style="width:min(560px,100%);max-height:90vh;overflow:auto;box-shadow:0 20px 70px #11182733"><div class="card-head"><h2 id="editTaskTitle">${t?"Edit task":"Add task"}</h2><button class="iconbtn" type="button" data-action="close-modal">×</button></div><form id="taskEditorForm"><input id="editTaskId" type="hidden" value="${escapeHTML(t?.id||"")}"><div class="field"><label for="editTaskTitleInput">Task *</label><input id="editTaskTitleInput" required maxlength="180" value="${escapeHTML(t?.title||"")}" placeholder="e.g. Send meeting summary"></div><div class="form-grid"><div class="field"><label for="editTaskDue">Due date</label><input id="editTaskDue" type="date" value="${escapeHTML(t?.due||"")}"></div><div class="field"><label for="editTaskPriority">Priority</label><select id="editTaskPriority"><option ${t?.priority==="High"?"selected":""}>High</option><option ${!t||t.priority==="Medium"?"selected":""}>Medium</option><option ${t?.priority==="Low"?"selected":""}>Low</option></select></div><div class="field span-2"><label for="editTaskOwner">Owner / assigned to</label><input id="editTaskOwner" maxlength="100" value="${escapeHTML(t?.owner||"")}" placeholder="You or a colleague"></div><div class="field span-2"><label for="editTaskNotes">Details / follow-up notes</label><textarea id="editTaskNotes" maxlength="3000">${escapeHTML(t?.notes||"")}</textarea></div></div><div class="inline-form-actions"><button class="outline" type="button" data-action="close-modal">Cancel</button><button class="primary" type="submit">Save task</button></div></form></section></div>`;$("editTaskTitleInput").focus()}
+function openEventEditor(e=null){$("modalMount").innerHTML=`<div class="modal-backdrop" style="position:fixed;inset:0;background:#15192b77;display:grid;place-items:center;padding:18px;z-index:30"><section class="card" role="dialog" aria-modal="true" aria-labelledby="eventEditorTitle" style="width:min(560px,100%);max-height:90vh;overflow:auto;box-shadow:0 20px 70px #11182733"><div class="card-head"><h2 id="eventEditorTitle">${e?"Edit event":"Add agenda event"}</h2><button class="iconbtn" type="button" data-action="close-modal">×</button></div><form id="eventEditorForm"><input id="editEventId" type="hidden" value="${escapeHTML(e?.id||"")}"><div class="field"><label for="editEventTitle">Event title *</label><input id="editEventTitle" required maxlength="180" value="${escapeHTML(e?.title||"")}" placeholder="e.g. Leadership team meeting"></div><div class="form-grid"><div class="field"><label for="editEventDate">Date *</label><input id="editEventDate" type="date" required value="${escapeHTML(e?.date||selectedDate||todayKey())}"></div><div class="field"><label for="editEventTime">Start time</label><input id="editEventTime" type="time" value="${escapeHTML(e?.time||"09:00")}"></div><div class="field"><label for="editEventKind">Type</label><select id="editEventKind"><option ${!e||e.kind==="Meeting"?"selected":""}>Meeting</option><option ${e?.kind==="External"?"selected":""}>External</option><option ${e?.kind==="Personal"?"selected":""}>Personal</option><option ${e?.kind==="Focus time"?"selected":""}>Focus time</option></select></div><div class="field"><label for="editEventLocation">Location / link</label><input id="editEventLocation" maxlength="180" value="${escapeHTML(e?.location||"")}" placeholder="Room, address, or meeting link"></div><div class="field span-2"><label for="editEventAttendees">Attendees</label><input id="editEventAttendees" maxlength="250" value="${escapeHTML(e?.attendees||"")}" placeholder="Names separated by commas"></div></div><div class="inline-form-actions"><button class="outline" type="button" data-action="close-modal">Cancel</button><button class="primary" type="submit">Save event</button></div></form></section></div>`;$("editEventTitle").focus()}
+document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>setPage(b.dataset.page)));
+document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>setPage(b.dataset.goto)));
+$("mobileNavBtn").addEventListener("click",()=>{const pages=["dashboard","agenda","tasks","notes","contacts"],current=pages.find(p=>!$(p+"Page").classList.contains("hidden"))||"dashboard";setPage(pages[(pages.indexOf(current)+1)%pages.length])});
+$("globalSearch").addEventListener("input",e=>{searchQuery=e.target.value;renderAllTasks();renderNotes();renderContacts()});
+$("taskStatusFilter").addEventListener("change",renderAllTasks);$("taskPriorityFilter").addEventListener("change",renderAllTasks);
+$("quickAddBtn").addEventListener("click",()=>{const choice=prompt("Quick add: type task, event, note, or contact","task");if(!choice)return;const x=choice.trim().toLowerCase();if(["task","event","note","contact"].includes(x))showForm(x);else toast("Choose task, event, note, or contact.")});
+document.addEventListener("click",e=>{
+ const b=e.target.closest("button");if(!b)return;
+ if(b.dataset.action==="new-task")showForm("task");
+ if(b.dataset.action==="new-event")showForm("event");
+ if(b.dataset.action==="new-note")showForm("note");
+ if(b.dataset.action==="new-contact")showForm("contact");
+ if(b.dataset.action==="cancel-note")$("noteFormWrap").classList.add("hidden");
+ if(b.dataset.action==="cancel-contact")$("contactFormWrap").classList.add("hidden");
+ if(b.dataset.action==="close-modal")$("modalMount").innerHTML="";
+ if(b.dataset.selectDate){selectedDate=b.dataset.selectDate;if(b.dataset.strip==="agenda")renderAgenda();else{renderWeekStrip($("weekStrip"),startOfWeek(tzNow()),true);renderWeekPreview()}}
+ if(b.dataset.editTask){const t=data.tasks.find(x=>x.id===b.dataset.editTask);if(t)showForm("task",t)}
+ if(b.dataset.deleteTask){if(confirm("Delete this task?")){data.tasks=data.tasks.filter(t=>t.id!==b.dataset.deleteTask);saveData();renderAll();toast("Task deleted.")}}
+ if(b.dataset.editEvent){const ev=data.events.find(x=>x.id===b.dataset.editEvent);if(ev)showForm("event",ev)}
+ if(b.dataset.deleteEvent){if(confirm("Delete this event?")){data.events=data.events.filter(x=>x.id!==b.dataset.deleteEvent);saveData();renderAll();toast("Event deleted.")}}
+ if(b.dataset.editNote){const n=data.notes.find(x=>x.id===b.dataset.editNote);if(n)showForm("note",n)}
+ if(b.dataset.deleteNote){if(confirm("Delete this note?")){data.notes=data.notes.filter(x=>x.id!==b.dataset.deleteNote);saveData();renderAll();toast("Note deleted.")}}
+ if(b.dataset.editContact){const c=data.contacts.find(x=>x.id===b.dataset.editContact);if(c)showForm("contact",c)}
+ if(b.dataset.deleteContact){if(confirm("Delete this contact?")){data.contacts=data.contacts.filter(x=>x.id!==b.dataset.deleteContact);saveData();renderAll();toast("Contact deleted.")}}
+});
+document.addEventListener("change",e=>{const id=e.target.dataset.taskToggle;if(!id)return;const t=data.tasks.find(x=>x.id===id);if(t){t.done=e.target.checked;t.updatedAt=new Date().toISOString();saveData();renderAll();toast(t.done?"Task completed.":"Task reopened.")}});
+document.addEventListener("submit",e=>{
+ if(e.target.id==="taskEditorForm"){e.preventDefault();const id=$("editTaskId").value,old=data.tasks.find(t=>t.id===id);const task={id:id||uid(),title:$("editTaskTitleInput").value.trim(),due:$("editTaskDue").value,priority:$("editTaskPriority").value,owner:$("editTaskOwner").value.trim(),notes:$("editTaskNotes").value.trim(),done:old?.done||false,createdAt:old?.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString()};if(!task.title)return;if(old)data.tasks=data.tasks.map(t=>t.id===id?task:t);else data.tasks.unshift(task);saveData();$("modalMount").innerHTML="";renderAll();toast(old?"Task updated.":"Task added.")}
+ if(e.target.id==="eventEditorForm"){e.preventDefault();const id=$("editEventId").value,old=data.events.find(x=>x.id===id);const ev={id:id||uid(),title:$("editEventTitle").value.trim(),date:$("editEventDate").value,time:$("editEventTime").value,kind:$("editEventKind").value,location:$("editEventLocation").value.trim(),attendees:$("editEventAttendees").value.trim(),createdAt:old?.createdAt||new Date().toISOString()};if(old)data.events=data.events.map(x=>x.id===id?ev:x);else data.events.push(ev);selectedDate=ev.date;saveData();$("modalMount").innerHTML="";renderAll();toast(old?"Event updated.":"Event added.")}
+ if(e.target.id==="noteForm"){e.preventDefault();const id=$("noteId").value,old=data.notes.find(x=>x.id===id);const n={id:id||uid(),title:$("noteTitle").value.trim(),date:$("noteDate").value,attendees:$("noteAttendees").value.trim(),body:$("noteBody").value.trim(),createdAt:old?.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString()};if(old)data.notes=data.notes.map(x=>x.id===id?n:x);else data.notes.unshift(n);saveData();$("noteFormWrap").classList.add("hidden");renderAll();toast(old?"Note updated.":"Note saved.")}
+ if(e.target.id==="contactForm"){e.preventDefault();const id=$("contactId").value,old=data.contacts.find(x=>x.id===id);const c={id:id||uid(),name:$("contactName").value.trim(),role:$("contactRole").value.trim(),email:$("contactEmail").value.trim(),phone:$("contactPhone").value.trim(),notes:$("contactNotes").value.trim(),createdAt:old?.createdAt||new Date().toISOString()};if(old)data.contacts=data.contacts.map(x=>x.id===id?c:x);else data.contacts.push(c);saveData();$("contactFormWrap").classList.add("hidden");renderAll();toast(old?"Contact updated.":"Contact saved.")}
+});
+$("agendaPrev").addEventListener("click",()=>{agendaWeekStart.setDate(agendaWeekStart.getDate()-7);selectedDate=dateKey(agendaWeekStart);renderAgenda()});
+$("agendaNext").addEventListener("click",()=>{agendaWeekStart.setDate(agendaWeekStart.getDate()+7);selectedDate=dateKey(agendaWeekStart);renderAgenda()});
+$("agendaToday").addEventListener("click",()=>{agendaWeekStart=startOfWeek(tzNow());selectedDate=todayKey();renderAgenda()});
+updateClock();setInterval(updateClock,15000);
+if(!cloudConfigured){setAuthMode(false);$("loginGate").classList.remove("hidden");$("workspaceShell").classList.add("hidden");setCloudStatus("Setup required · Configure Supabase URL/key and run the SQL setup",true);authMessage("To enable cross-device accounts, configure this app with your Supabase Project URL and public anon/publishable key, then run the included SQL setup.")}
+else if(!supabase){setCloudStatus("Supabase client failed to load",true);setAuthMode(false)}
+else{supabase.auth.getSession().then(async({data:sessionData,error})=>{if(error)console.error(error);if(sessionData?.session?.user)await enterWorkspace(sessionData.session.user);else{setAuthMode(false);$("loginGate").classList.remove("hidden");$("workspaceShell").classList.add("hidden");setCloudStatus("Ready · Sign in to sync across devices")}});supabase.auth.onAuthStateChange((event,session)=>{if(event==="PASSWORD_RECOVERY"){$("workspaceShell").classList.add("hidden");$("loginGate").classList.remove("hidden");$("signInForm").classList.add("hidden");$("createAccountForm").classList.add("hidden");$("forgotUsernameForm").classList.add("hidden");$("forgotPasswordForm").classList.remove("hidden");$("fpStep2").classList.remove("hidden");$("fpUsername").closest(".login-field").classList.add("hidden");$("fpQuestion").classList.add("hidden");$("fpAnswer").closest(".login-field").classList.add("hidden");$("fpSubmitLabel").textContent="Update password";$("loginHeading").textContent="Choose a new password";$("loginEyebrow").textContent="ACCOUNT RECOVERY";$("loginSwitchBtn").parentElement.classList.add("hidden");authMessage("Enter and confirm your new password below.",true)}})}
+$("forgotPasswordForm")?.addEventListener("submit",async e=>{e.preventDefault();if(!supabase)return authMessage("Supabase is not configured.");const np=$("fpNew").value,cp=$("fpConfirm").value;if(np.length<8)return authMessage("Use a password with at least 8 characters.");if(np!==cp)return authMessage("Your passwords don't match.");const {error}=await supabase.auth.updateUser({password:np});if(error)return authMessage(error.message);$("forgotPasswordForm").reset();$("fpUsername").closest(".login-field").classList.remove("hidden");$("fpQuestion").classList.remove("hidden");$("fpAnswer").closest(".login-field").classList.remove("hidden");$("fpStep2").classList.add("hidden");setAuthMode(false);authMessage("Password updated. You can now sign in with your new password.",true)});
+
+// Executive Edge enhancements: intention, focus timer, momentum, quick capture, portable backups.
+let focusRemaining = 25 * 60, focusInterval = null, focusRunning = false;
+function setFocusDisplay(){const m=Math.floor(focusRemaining/60),sec=focusRemaining%60;$("focusClock").textContent=String(m).padStart(2,"0")+":"+String(sec).padStart(2,"0");$("focusStartBtn").textContent=focusRunning?"Ⅱ Pause focus":"▶ Start focus";$("focusStatus").textContent=focusRunning?"IN THE ZONE":"READY WHEN YOU ARE";$("focusCaption").textContent=focusRunning?"Protect this time. Ignore the noise.":"One thing. Full attention."}
+function stopFocus(){if(focusInterval){clearInterval(focusInterval);focusInterval=null}focusRunning=false;setFocusDisplay()}
+function updateMomentum(){if(!data)return;const tasks=data.tasks||[],done=tasks.filter(t=>t.done).length,total=tasks.length,pct=total?Math.round(done/total*100):0;$("momentumNumber").textContent=pct+"%";$("momentumBar").style.width=pct+"%";$("momentumDone").textContent=done;$("momentumText").textContent=!total?"Capture your first task to start building momentum.":pct===100?"Everything on your list is complete. Protect the win.":pct>=70?"Excellent momentum. Close out the final stretch.":pct>=35?"You're building traction. Keep the next action small.":"Start by completing one meaningful task."}
+function loadIntention(){if($("dailyIntention"))$("dailyIntention").value=data.intentionDate===todayKey()?(data.intention||""):""}
+if(typeof renderAll==="function"){const originalRenderAll=renderAll;renderAll=function(){originalRenderAll();if($("dailyIntention"))loadIntention();updateMomentum()}}
+$("focusStartBtn")?.addEventListener("click",()=>{if(focusRunning){stopFocus();return}if(focusRemaining<=0)focusRemaining=Number($("focusDuration").value)*60;focusRunning=true;setFocusDisplay();focusInterval=setInterval(()=>{focusRemaining--;setFocusDisplay();if(focusRemaining<=0){stopFocus();$("focusStatus").textContent="SESSION COMPLETE";$("focusCaption").textContent="Beautiful work. Take a short reset.";toast("Focus session complete — take a well-earned break.")}},1000)});
+$("focusResetBtn")?.addEventListener("click",()=>{stopFocus();focusRemaining=Number($("focusDuration").value)*60;setFocusDisplay()});
+$("focusDuration")?.addEventListener("change",()=>{stopFocus();focusRemaining=Number($("focusDuration").value)*60;setFocusDisplay()});
+$("saveIntentionBtn")?.addEventListener("click",()=>{data.intention=$("dailyIntention").value.trim();data.intentionDate=todayKey();saveData();toast(data.intention?"Daily intention saved.":"Daily intention cleared.")});
+$("quickCaptureForm")?.addEventListener("submit",e=>{e.preventDefault();const title=$("quickCaptureInput").value.trim();if(!title)return;data.tasks.unshift({id:uid(),title,due:"",priority:$("quickCapturePriority").value,owner:"",notes:"",done:false,createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()});saveData();$("quickCaptureInput").value="";renderAll();toast("Captured. It's on your task list.")});
+$("exportDataBtn")?.addEventListener("click",()=>{const payload={app:"Executive Assistant Command Center",version:2,exportedAt:new Date().toISOString(),username:currentUsername,data};const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="executive-assistant-backup-"+todayKey()+".json";a.click();URL.revokeObjectURL(url);toast("Backup downloaded.")});
+$("importDataBtn")?.addEventListener("click",()=>$("importDataFile").click());
+$("importDataFile")?.addEventListener("change",async e=>{const file=e.target.files?.[0];if(!file)return;try{const payload=JSON.parse(await file.text()),incoming=payload.data||payload;if(!incoming||!Array.isArray(incoming.tasks)||!Array.isArray(incoming.events)||!Array.isArray(incoming.notes)||!Array.isArray(incoming.contacts))throw new Error("This file doesn't look like a valid command center backup.");if(!confirm("Restore this backup for the current account? Current tasks, events, notes, and contacts will be replaced."))return;data={...data,...incoming};saveData();renderAll();loadIntention();toast("Backup restored successfully.")}catch(err){alert(err.message||"Could not read this backup.")}finally{e.target.value=""}});
+document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();$("globalSearch").focus();$("globalSearch").select()}if(e.key==="/"&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)&&!e.ctrlKey&&!e.metaKey){e.preventDefault();$("globalSearch").focus()}if(e.key==="Escape"){const modal=$("modalMount");if(modal)modal.innerHTML=""}});
+setFocusDisplay();
+
+
+// Strategy Room: outcomes, daily rituals, and an automatically generated executive briefing.
+function ensureStrategyData(){data.goals=Array.isArray(data.goals)?data.goals:[];data.rituals=Array.isArray(data.rituals)?data.rituals:[]}
+function renderGoals(){ensureStrategyData();const host=$("goalsList");if(!host)return;const active=data.goals.filter(g=>!g.done);$("goalCount").textContent=active.length+" active";$("goalsEmpty").classList.toggle("hidden",data.goals.length>0);host.innerHTML=data.goals.map(g=>`<div class="goal-item"><div class="goal-top"><div class="goal-name">${escapeHTML(g.title)}</div><button class="goal-delete" data-goal-delete="${escapeHTML(g.id)}" type="button" title="Delete outcome">×</button></div><div class="goal-meta"><span>${g.done?"✓ Achieved":(g.due?"Target "+escapeHTML(g.due):"Ongoing outcome")}</span><strong>${g.done?100:g.progress||0}%</strong></div><div class="goal-progress"><span style="width:${g.done?100:g.progress||0}%"></span></div><div class="goal-controls"><button data-goal-progress="${escapeHTML(g.id)}" data-step="-10" type="button">−10%</button><button data-goal-progress="${escapeHTML(g.id)}" data-step="10" type="button">+10%</button><button data-goal-done="${escapeHTML(g.id)}" class="goal-bump" type="button">${g.done?"Reopen":"Mark achieved"}</button></div></div>`).join("")}
+function renderRituals(){ensureStrategyData();const host=$("ritualsList");if(!host)return;const today=todayKey();let done=0;host.innerHTML=data.rituals.map(r=>{const checked=(r.completedOn||"")===today;if(checked)done++;return `<div class="ritual-row"><button class="ritual-check ${checked?"checked":""}" data-ritual-toggle="${escapeHTML(r.id)}" type="button" aria-label="${checked?"Uncheck":"Complete"} ${escapeHTML(r.title)}">${checked?"✓":""}</button><span class="ritual-name ${checked?"done":""}">${escapeHTML(r.title)}</span><span class="ritual-streak">${Number(r.streak||0)>0?"✦ "+r.streak+"d":""}</span><button class="ritual-delete" data-ritual-delete="${escapeHTML(r.id)}" type="button" aria-label="Delete ritual">×</button></div>`}).join("");$("ritualCount").textContent=done+" / "+data.rituals.length;$("ritualMessage").textContent=!data.rituals.length?"Design a day you can repeat.":done===data.rituals.length?"All rituals complete. That's consistency.":done?`${data.rituals.length-done} ritual${data.rituals.length-done===1?"":"s"} left for today's rhythm.`:"A small promise to yourself, kept daily."}
+function renderBriefing(){const host=$("executiveBriefing");if(!host)return;const today=todayKey(),open=data.tasks.filter(t=>!t.done),overdue=open.filter(t=>t.due&&t.due<today),high=open.filter(t=>t.priority==="High"),events=data.events.filter(e=>e.date===today).sort((a,b)=>(a.time||"").localeCompare(b.time||"")),dueToday=open.filter(t=>t.due===today),unscheduled=open.filter(t=>!t.due);const items=[];if(overdue.length)items.push(["!","Recover overdue work",`${overdue.length} task${overdue.length===1?" is":"s are"} past due. Pick the most consequential one and decide: finish, delegate, or renegotiate.`]);else items.push(["✓","No overdue tasks", "Keep your commitments clean by closing or rescheduling anything that slips."]);if(high.length)items.push(["↑","Protect high-priority work",`${high.length} high-priority task${high.length===1?"":"s"} remain open. Give the top one protected focus time.`]);if(events.length)items.push(["◷","Prepare for today's meetings",`${events.length} event${events.length===1?"":"s"} on the agenda${events[0].time?"; first starts at "+events[0].time:""}. Review desired outcomes and decisions before joining.`]);else items.push(["◇","Create space for deep work","No events are scheduled today. Consider reserving a focused block for your most important outcome."]);if(dueToday.length)items.push(["→","Today's delivery list",`${dueToday.length} open task${dueToday.length===1?"":"s"} due today. Start with the one that unlocks other people.`]);else if(unscheduled.length)items.push(["⌁","Give work a landing place",`${unscheduled.length} task${unscheduled.length===1?" has":"s have"} no due date. Add a deadline only where it creates useful clarity.`]);host.innerHTML=items.slice(0,4).map(x=>`<div class="brief-line"><span class="brief-symbol">${x[0]}</span><div><strong>${x[1]}</strong><p>${x[2]}</p></div></div>`).join("")}
+function renderStrategy(){if(!data||!currentUsername)return;ensureStrategyData();renderGoals();renderRituals();renderBriefing()}
+if(typeof renderAll==="function"){const oldStrategyRenderAll=renderAll;renderAll=function(){oldStrategyRenderAll();renderStrategy()}}
+$("addGoalBtn")?.addEventListener("click",()=>{ensureStrategyData();if(data.goals.filter(g=>!g.done).length>=3)return toast("Keep no more than three active outcomes in focus.");const title=prompt("What meaningful outcome are you working toward?");if(!title||!title.trim())return;const due=prompt("Target date (YYYY-MM-DD), or leave blank:","");if(due&&!/^\d{4}-\d{2}-\d{2}$/.test(due))return toast("Use YYYY-MM-DD for the target date.");data.goals.push({id:uid(),title:title.trim().slice(0,120),due:due||"",progress:0,done:false,createdAt:new Date().toISOString()});saveData();renderStrategy();toast("Outcome added to your Strategy Room.")});
+$("newRitualInput")?.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();$("addRitualBtn").click()}});
+$("addRitualBtn")?.addEventListener("click",()=>{ensureStrategyData();const input=$("newRitualInput"),title=input.value.trim();if(!title)return;if(data.rituals.length>=12)return toast("Keep your daily ritual list to 12 or fewer.");data.rituals.push({id:uid(),title:title.slice(0,80),completedOn:"",streak:0});input.value="";saveData();renderStrategy();toast("Daily ritual added.")});
+$("resetRitualsBtn")?.addEventListener("click",()=>{ensureStrategyData();if(!confirm("Reset today's ritual checkmarks?"))return;data.rituals.forEach(r=>r.completedOn="");saveData();renderStrategy()});
+$("refreshBriefingBtn")?.addEventListener("click",()=>{renderBriefing();toast("Briefing refreshed from your latest workspace data.")});
+document.addEventListener("click",e=>{const delGoal=e.target.closest("[data-goal-delete]");if(delGoal){if(confirm("Delete this strategic outcome?")){data.goals=data.goals.filter(g=>g.id!==delGoal.dataset.goalDelete);saveData();renderStrategy()}return}const prog=e.target.closest("[data-goal-progress]");if(prog){const g=data.goals.find(x=>x.id===prog.dataset.goalProgress);if(g){g.progress=Math.max(0,Math.min(100,Number(g.progress||0)+Number(prog.dataset.step)));g.done=g.progress>=100;saveData();renderStrategy()}return}const done=e.target.closest("[data-goal-done]");if(done){const g=data.goals.find(x=>x.id===done.dataset.goalDone);if(g){g.done=!g.done;g.progress=g.done?100:Math.min(90,Number(g.progress||0));saveData();renderStrategy()}return}const ritual=e.target.closest("[data-ritual-toggle]");if(ritual){const r=data.rituals.find(x=>x.id===ritual.dataset.ritualToggle);if(r){const today=todayKey();if(r.completedOn===today){r.completedOn="";r.streak=Math.max(0,Number(r.streak||0)-1)}else{r.completedOn=today;r.streak=Number(r.streak||0)+1}saveData();renderStrategy()}return}const delRitual=e.target.closest("[data-ritual-delete]");if(delRitual&&confirm("Delete this daily ritual?")){data.rituals=data.rituals.filter(r=>r.id!==delRitual.dataset.ritualDelete);saveData();renderStrategy()}});
+
+
+// Final startup pass after every feature module and click handler is registered.
+// This makes the Strategy Room, daily intention, and momentum panel render on
+// restored sessions as well as freshly-created accounts.
+try {
+  if (currentUsername) {
+    renderAll();
+    if (typeof loadIntention === "function") loadIntention();
+    if (typeof renderStrategy === "function") renderStrategy();
+    if (typeof updateMomentum === "function") updateMomentum();
+  }
+} catch (startupError) {
+  console.error("Executive Hub startup refresh failed:", startupError);
+  toast("Some dashboard panels could not refresh. Try reloading the page.");
+}
+
+
+// Reliability patch: intercept the two reported broken controls before legacy listeners.
+document.addEventListener("submit", function reliableQuickCapture(e){
+  if(!e.target || e.target.id!=="quickCaptureForm") return;
+  e.preventDefault(); e.stopImmediatePropagation();
+  try {
+    const input=document.getElementById("quickCaptureInput");
+    const priority=document.getElementById("quickCapturePriority");
+    const title=(input?.value||"").trim();
+    if(!title){input?.focus();toast("Type a task first, then press Capture.");return;}
+    if(!currentUsername){toast("Please sign in before adding a task.");return;}
+    if(!Array.isArray(data.tasks)) data.tasks=[];
+    data.tasks.unshift({id:uid(),title,due:"",priority:priority?.value||"Medium",owner:"",notes:"",done:false,createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()});
+    saveData(); input.value="";
+    renderAll();
+    if(typeof updateMomentum==="function") updateMomentum();
+    if(typeof renderBriefing==="function") renderBriefing();
+    toast("Task captured successfully.");
+  } catch(err){console.error("Quick capture failed",err);toast("Could not capture task. Reload the page and try again.");}
+}, true);
+
+document.addEventListener("click", function reliableRitualAdd(e){
+  const button=e.target?.closest?.("#addRitualBtn");
+  if(!button)return;
+  e.preventDefault();e.stopImmediatePropagation();
+  try {
+    const input=document.getElementById("newRitualInput");
+    const title=(input?.value||"").trim();
+    if(!title){input?.focus();toast("Enter a ritual name first.");return;}
+    if(!currentUsername){toast("Please sign in before adding a ritual.");return;}
+    ensureStrategyData();
+    if(data.rituals.length>=12){toast("Keep your daily ritual list to 12 or fewer.");return;}
+    data.rituals.push({id:uid(),title:title.slice(0,80),completedOn:"",streak:0});
+    input.value="";saveData();renderStrategy();toast("Daily ritual added.");
+  } catch(err){console.error("Ritual add failed",err);toast("Could not add ritual. Reload the page and try again.");}
+}, true);
+document.addEventListener("keydown",e=>{if(e.target?.id==="newRitualInput"&&e.key==="Enter"){e.preventDefault();document.getElementById("addRitualBtn")?.click()}},true);
+
+
+// Operations Center: follow-ups, decision journal, and a persistent weekly review.
+function ensureOpsData(){data.followups=Array.isArray(data.followups)?data.followups:[];data.decisions=Array.isArray(data.decisions)?data.decisions:[];data.weeklyReviews=data.weeklyReviews&&typeof data.weeklyReviews==="object"?data.weeklyReviews:{}}
+function renderFollowups(){ensureOpsData();const host=$("followupsList");if(!host)return;const open=data.followups.filter(f=>f.status!=="Done");$("followupsEmpty").classList.toggle("hidden",open.length>0);host.innerHTML=open.slice().sort((a,b)=>(a.date||"9999").localeCompare(b.date||"9999")).map(f=>`<div class="ops-item"><div class="ops-item-top"><div class="ops-item-title">${escapeHTML(f.title)}</div></div><div class="ops-item-meta">${escapeHTML(f.person||"No person assigned")} · ${escapeHTML(f.status)}${f.date?" · Due "+escapeHTML(f.date):""}</div><div class="ops-item-actions"><button data-followup-status="${escapeHTML(f.id)}" data-next="${f.status==="To send"?"Waiting":f.status==="Waiting"?"Done":"To send"}" type="button">${f.status==="To send"?"Mark sent":f.status==="Waiting"?"Mark complete":"Reopen"}</button><button data-followup-edit="${escapeHTML(f.id)}" type="button">Edit</button><button data-followup-delete="${escapeHTML(f.id)}" type="button">Delete</button></div></div>`).join("")}
+function renderDecisions(){ensureOpsData();const host=$("decisionsList");if(!host)return;const list=data.decisions.slice().reverse();$("decisionsEmpty").classList.toggle("hidden",list.length>0);host.innerHTML=list.slice(0,8).map(d=>`<div class="ops-item"><div class="ops-item-top"><div class="ops-item-title">${escapeHTML(d.title)}</div></div><div class="ops-item-meta">${escapeHTML(d.owner||"No owner")} · ${escapeHTML(d.date||"")}</div>${d.reason?`<div class="ops-item-note">${escapeHTML(d.reason)}</div>`:""}<div class="ops-item-actions"><button data-decision-edit="${escapeHTML(d.id)}" type="button">Edit</button><button data-decision-delete="${escapeHTML(d.id)}" type="button">Delete</button></div></div>`).join("")}
+function weekStartKey(){const d=tzNow();d.setHours(0,0,0,0);const day=(d.getDay()+6)%7;d.setDate(d.getDate()-day);return dateKey(d)}
+function renderWeeklyReview(){ensureOpsData();const key=weekStartKey(),r=data.weeklyReviews[key]||{};const stats=$("reviewStats");if(!stats)return;const tasks=data.tasks||[],events=data.events||[],done=tasks.filter(t=>t.done).length,overdue=tasks.filter(t=>!t.done&&t.due&&t.due<todayKey()).length;stats.innerHTML=`<div class="review-stat"><strong>${done}</strong><span>Tasks complete</span></div><div class="review-stat"><strong>${overdue}</strong><span>Overdue now</span></div><div class="review-stat"><strong>${events.filter(e=>e.date>=key).length}</strong><span>Upcoming events</span></div>`;$("reviewWins").value=r.wins||"";$("reviewImprove").value=r.improve||"";$("reviewNext").value=r.next||"";$("reviewSavedAt").textContent=r.savedAt?"Last saved "+new Date(r.savedAt).toLocaleString():"Review not saved for this week yet."}
+function renderOps(){if(!data||!currentUsername)return;ensureOpsData();renderFollowups();renderDecisions();renderWeeklyReview()}
+if(typeof renderAll==="function"){const opsOldRenderAll=renderAll;renderAll=function(){opsOldRenderAll();renderOps()}}
+$("addFollowupBtn")?.addEventListener("click",()=>{$("followupForm").classList.toggle("hidden");if(!$("followupForm").classList.contains("hidden"))$("followupTitle").focus()});
+$("followupForm")?.addEventListener("submit",e=>{e.preventDefault();ensureOpsData();const title=$("followupTitle").value.trim();if(!title)return;data.followups.push({id:uid(),title,person:$("followupPerson").value.trim(),date:$("followupDate").value,status:$("followupStatus").value,createdAt:new Date().toISOString()});saveData();e.target.reset();e.target.classList.add("hidden");renderOps();toast("Follow-up added.")});
+$("addDecisionBtn")?.addEventListener("click",()=>{$("decisionForm").classList.toggle("hidden");if(!$("decisionForm").classList.contains("hidden"))$("decisionTitle").focus()});
+$("decisionForm")?.addEventListener("submit",e=>{e.preventDefault();ensureOpsData();const title=$("decisionTitle").value.trim();if(!title)return;data.decisions.push({id:uid(),title,reason:$("decisionReason").value.trim(),owner:$("decisionOwner").value.trim(),date:todayKey(),createdAt:new Date().toISOString()});saveData();e.target.reset();e.target.classList.add("hidden");renderOps();toast("Decision recorded.")});
+$("saveReviewBtn")?.addEventListener("click",()=>{ensureOpsData();const key=weekStartKey();data.weeklyReviews[key]={wins:$("reviewWins").value.trim(),improve:$("reviewImprove").value.trim(),next:$("reviewNext").value.trim(),savedAt:new Date().toISOString()};saveData();renderWeeklyReview();toast("Weekly review saved.")});
+document.addEventListener("click",e=>{const s=e.target.closest("[data-followup-status]");if(s){const f=data.followups.find(x=>x.id===s.dataset.followupStatus);if(f){f.status=s.dataset.next;saveData();renderOps();toast("Follow-up updated.")}return}const del=e.target.closest("[data-followup-delete]");if(del){if(confirm("Delete this follow-up?")){data.followups=data.followups.filter(x=>x.id!==del.dataset.followupDelete);saveData();renderOps()}return}const edit=e.target.closest("[data-followup-edit]");if(edit){const f=data.followups.find(x=>x.id===edit.dataset.followupEdit);if(f){const title=prompt("Edit follow-up",f.title);if(title===null)return;if(!title.trim())return toast("Follow-up title cannot be empty.");f.title=title.trim();const person=prompt("Person / organization",f.person||"");if(person!==null)f.person=person.trim();const date=prompt("Due date (YYYY-MM-DD), blank for none",f.date||"");if(date!==null&&(!date||/^\d{4}-\d{2}-\d{2}$/.test(date)))f.date=date;saveData();renderOps()}return}const dd=e.target.closest("[data-decision-delete]");if(dd){if(confirm("Delete this decision record?")){data.decisions=data.decisions.filter(x=>x.id!==dd.dataset.decisionDelete);saveData();renderOps()}return}const de=e.target.closest("[data-decision-edit]");if(de){const d=data.decisions.find(x=>x.id===de.dataset.decisionEdit);if(d){const title=prompt("Edit decision",d.title);if(title===null)return;if(!title.trim())return toast("Decision title cannot be empty.");d.title=title.trim();const reason=prompt("Rationale / trade-offs",d.reason||"");if(reason!==null)d.reason=reason;saveData();renderOps()}return}});
+
+
+// Per-account profile customization. Photo is resized before storage to avoid oversized localStorage entries.
+function profileKey(){return "executiveHubProfile:"+String(currentUsername||"").toLowerCase()}
+function getProfile(){try{return JSON.parse(localStorage.getItem(profileKey())||"{}")}catch(_){return {}}}
+function profileInitials(name){return String(name||currentUsername||"EA").trim().split(/\s+/).slice(0,2).map(x=>x[0]||"").join("").toUpperCase()||"EA"}
+function paintAvatar(el,profile){if(!el)return;const photo=profile&&profile.photo;if(photo){el.innerHTML=`<img alt="Profile photo" src="${photo}">`}else el.textContent=profileInitials(profile&&profile.name)}
+function refreshProfileUI(){const profile=getProfile(),display=profile.name||currentUsername||"Your profile";paintAvatar($("userAvatar"),profile);paintAvatar($("profilePreview"),profile);if($("profileDisplayName"))$("profileDisplayName").textContent=display;if($("profileNameInput"))$("profileNameInput").value=profile.name||"";const avatar=$("userAvatar");if(avatar)avatar.title=display+" — profile settings"}
+function openProfileMenu(){refreshProfileUI();refreshRecoveryUI();refreshTZUI();refreshThemeUI();$("profileMenu")?.classList.remove("hidden")}
+function closeProfileMenu(){$("profileMenu")?.classList.add("hidden")}
+$("userAvatar")?.addEventListener("click",openProfileMenu);
+$("closeProfileMenu")?.addEventListener("click",closeProfileMenu);
+$("uploadProfilePhotoBtn")?.addEventListener("click",()=>$("profilePhotoInput").click());
+
+let cropImageObject=null,cropScale=1,cropBaseScale=1,cropX=0,cropY=0,cropDrag=null,cropSourceUrl="";
+function updateCropImage(){const img=$("photoCropImage"),stage=$("photoCropStage");if(!img||!stage||!img.naturalWidth)return;const size=stage.clientWidth;if(!size)return;cropBaseScale=Math.max(size/img.naturalWidth,size/img.naturalHeight);const scale=cropBaseScale*cropScale;const w=img.naturalWidth*scale,h=img.naturalHeight*scale;img.style.position="absolute";img.style.width=w+"px";img.style.height=h+"px";img.style.maxWidth="none";img.style.maxHeight="none";img.style.left="50%";img.style.top="50%";img.style.transform=`translate(-50%,-50%) translate(${cropX}px,${cropY}px)`;img.style.objectFit="fill";img.style.display="block";img.style.visibility="visible";$("photoZoom").value=String(cropScale)}
+function clampCropPosition(){const stage=$("photoCropStage"),img=$("photoCropImage");if(!stage||!img?.naturalWidth)return;const size=stage.clientWidth,scale=cropBaseScale*cropScale,iw=img.naturalWidth*scale,ih=img.naturalHeight*scale;cropX=Math.max(-Math.max(0,(iw-size)/2),Math.min(Math.max(0,(iw-size)/2),cropX));cropY=Math.max(-Math.max(0,(ih-size)/2),Math.min(Math.max(0,(ih-size)/2),cropY))}
+function openPhotoCrop(src){
+  cropSourceUrl=src;cropScale=1;cropX=0;cropY=0;
+  const img=$("photoCropImage"),modal=$("photoCropModal");
+  img.onload=()=>{
+    // Wait until the crop dialog is visible so its stage has real dimensions.
+    modal.classList.remove("hidden");
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      if(!img.naturalWidth||!img.naturalHeight){toast("The selected image could not be loaded.");closePhotoCrop();return}
+      updateCropImage();
+      img.style.display="block";
+      img.style.visibility="visible";
+    }));
+  };
+  img.onerror=()=>{toast("Could not preview this photo. Try a JPG or PNG image.");closePhotoCrop()};
+  img.style.display="block";img.style.visibility="visible";
+  img.src=src;
+  // Cached/data URLs can already be complete before onload is attached/fired.
+  if(img.complete&&img.naturalWidth>0)img.onload();
+}
+$("profilePhotoInput")?.addEventListener("change",e=>{const file=e.target.files?.[0];if(!file)return;if(!file.type.startsWith("image/")){toast("Choose an image file.");e.target.value="";return}if(file.size>12*1024*1024){toast("Please choose a photo smaller than 12 MB.");e.target.value="";return}const reader=new FileReader();reader.onload=()=>openPhotoCrop(reader.result);reader.onerror=()=>toast("Could not read this image.");reader.readAsDataURL(file);e.target.value=""});
+$("photoZoom")?.addEventListener("input",e=>{const oldScale=cropScale||1;cropScale=Number(e.target.value)||1;const ratio=cropScale/oldScale;cropX*=ratio;cropY*=ratio;clampCropPosition();updateCropImage()});
+$("photoCropStage")?.addEventListener("pointerdown",e=>{if(!$("photoCropImage").naturalWidth)return;cropDrag={x:e.clientX,y:e.clientY,originX:cropX,originY:cropY};e.currentTarget.setPointerCapture?.(e.pointerId)});
+$("photoCropStage")?.addEventListener("pointermove",e=>{if(!cropDrag)return;cropX=cropDrag.originX+(e.clientX-cropDrag.x);cropY=cropDrag.originY+(e.clientY-cropDrag.y);clampCropPosition();updateCropImage()});
+$("photoCropStage")?.addEventListener("pointerup",()=>cropDrag=null);
+$("photoCropStage")?.addEventListener("pointercancel",()=>cropDrag=null);
+$("photoCenterBtn")?.addEventListener("click",()=>{cropScale=1;cropX=0;cropY=0;updateCropImage()});
+function closePhotoCrop(){ $("photoCropModal")?.classList.add("hidden");cropDrag=null;cropSourceUrl="" }
+$("closePhotoCrop")?.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();closePhotoCrop()});
+$("cancelPhotoCrop")?.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();closePhotoCrop()});
+$("photoCropModal")?.addEventListener("click",e=>{if(e.target===$("photoCropModal"))closePhotoCrop()});
+$("savePhotoCrop")?.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();const img=$("photoCropImage"),stage=$("photoCropStage");if(!img?.naturalWidth||!stage){toast("Please choose a photo first.");return}try{const size=stage.clientWidth;if(!size)throw new Error("Crop area is not ready");const scale=cropBaseScale*cropScale,canvas=document.createElement("canvas");canvas.width=320;canvas.height=320;const ctx=canvas.getContext("2d");const renderedW=img.naturalWidth*scale,renderedH=img.naturalHeight*scale;const left=(size-renderedW)/2+cropX,top=(size-renderedH)/2+cropY;ctx.drawImage(img,(-left/size)*320,(-top/size)*320,(renderedW/size)*320,(renderedH/size)*320);const profile=getProfile();profile.photo=canvas.toDataURL("image/jpeg",.86);localStorage.setItem(profileKey(),JSON.stringify(profile));saveData();refreshProfileUI();closePhotoCrop();toast("Cropped profile photo saved.")}catch(err){console.error(err);toast("Could not save the crop. Try a smaller image.")}});
+$("saveProfileNameBtn")?.addEventListener("click",()=>{const name=$("profileNameInput").value.trim();if(!name){toast("Enter a display name first.");$("profileNameInput").focus();return}const profile=getProfile();profile.name=name.slice(0,60);localStorage.setItem(profileKey(),JSON.stringify(profile));saveData();refreshProfileUI();toast("Display name saved.")});
+$("removeProfilePhotoBtn")?.addEventListener("click",()=>{const profile=getProfile();if(!profile.photo)return toast("No profile photo to remove.");delete profile.photo;localStorage.setItem(profileKey(),JSON.stringify(profile));saveData();refreshProfileUI();toast("Profile photo removed.")});
+document.addEventListener("click",e=>{const menu=$("profileMenu");if(menu&&!menu.classList.contains("hidden")&&!menu.contains(e.target)&&!$("userAvatar").contains(e.target))closeProfileMenu()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeProfileMenu()});
+
+// A searchable command palette turns common workflows into one-keystroke actions.
+const commandPalette=$("commandPalette"), commandSearch=$("commandSearch"), commandResults=$("commandResults");
+const commandItems=[
+ {title:"Go to dashboard",detail:"Your daily overview and priorities",icon:"▦",run:()=>goPage("dashboard")},
+ {title:"Add a task",detail:"Capture an action with owner, due date, and priority",icon:"＋",run:()=>{closeCommandPalette();openTaskEditor();}},
+ {title:"Add a meeting or event",detail:"Schedule an agenda item",icon:"◷",run:()=>{goPage("agenda");setTimeout(()=>$('[data-action="new-event"]')?.click(),0)}},
+ {title:"Open task checklist",detail:"Review, filter, and complete tasks",icon:"✓",run:()=>goPage("tasks")},
+ {title:"Open calendar & agenda",detail:"See upcoming events and daily schedule",icon:"▤",run:()=>goPage("agenda")},
+ {title:"Open meeting notes",detail:"Capture decisions and discussion points",icon:"▧",run:()=>goPage("notes")},
+ {title:"Open contact directory",detail:"Find people and follow-up context",icon:"♙",run:()=>goPage("contacts")},
+ {title:"Open Strategy Room",detail:"Review goals, rituals, and executive briefing",icon:"◎",run:()=>goPage("strategy")},
+ {title:"Open Operations Center",detail:"Manage follow-ups, decisions, and weekly review",icon:"↗",run:()=>goPage("operations")},
+ {title:"Start focus session",detail:"Begin your selected focus timer",icon:"◴",run:()=>{$("focusStartBtn")?.click();goPage("dashboard")}},
+ {title:"Create daily brief",detail:"Download a shareable summary of today’s work",icon:"✦",run:()=>createDailyBrief()},
+ {title:"Export workspace backup",detail:"Download tasks, events, notes, contacts, and settings data",icon:"↗",run:()=>$("exportDataBtn")?.click()},
+ {title:"Restore from backup",detail:"Import a previously exported JSON backup",icon:"↙",run:()=>$("importDataBtn")?.click()},
+ {title:"Toggle light / dark theme",detail:"Switch the workspace appearance",icon:"☼",run:()=>$("themeToggleBtn")?.click()},
+ {title:"Search workspace",detail:"Find tasks, meetings, notes, and contacts",icon:"⌕",run:()=>{$("globalSearch")?.focus();closeCommandPalette()}}
+];
+function goPage(page){const b=document.querySelector(`[data-page="${page}"]`);if(b)b.click();closeCommandPalette()}
+function openCommandPalette(){if(!$('workspaceShell')||$('workspaceShell').classList.contains('hidden'))return;commandPalette.classList.remove('hidden');commandSearch.value="";renderCommandResults();setTimeout(()=>commandSearch.focus(),20)}
+function closeCommandPalette(){commandPalette.classList.add('hidden')}
+function renderCommandResults(){const q=(commandSearch.value||"").trim().toLowerCase();const matches=commandItems.filter(c=>(c.title+" "+c.detail).toLowerCase().includes(q));commandResults.innerHTML=matches.length?matches.map((c,i)=>`<button class="command-item" type="button" data-command-index="${commandItems.indexOf(c)}"><span class="command-item-icon">${c.icon}</span><span class="command-item-copy"><strong>${escapeHTML(c.title)}</strong><small>${escapeHTML(c.detail)}</small></span>${i===0?'<kbd>↵</kbd>':''}</button>`).join(""):'<div class="empty"><strong>No matching commands</strong>Try a different keyword.</div>'}
+function createDailyBrief(){
+ const today=todayKey(),open=data.tasks.filter(t=>!t.done),overdue=open.filter(t=>t.due&&t.due<today),dueToday=open.filter(t=>t.due===today),high=open.filter(t=>t.priority==="High"),events=data.events.filter(e=>e.date===today).sort((a,b)=>(a.time||"").localeCompare(b.time||"")),completed=data.tasks.filter(t=>t.done);
+ const lines=["EXECUTIVE DAILY BRIEF",fmtDate(today,{weekday:"long",month:"long",day:"numeric",year:"numeric"}),"", "AT A GLANCE",`Open tasks: ${open.length}`,`Overdue tasks: ${overdue.length}`,`High-priority open tasks: ${high.length}`,`Tasks due today: ${dueToday.length}`,`Meetings / events today: ${events.length}`,"", "TODAY'S SCHEDULE",...(events.length?events.map(e=>`• ${e.time?fmtTime(e.time)+" — ":""}${e.title}${e.location?" · "+e.location:""}${e.attendees?" · Attendees: "+e.attendees:""}`):["• No events scheduled."]),"", "PRIORITIES",...(overdue.length?overdue.slice(0,5).map(t=>`• OVERDUE: ${t.title}${t.due?" (due "+t.due+")":""}`):["• No overdue tasks."]),...high.slice(0,5).map(t=>`• HIGH: ${t.title}${t.due?" (due "+t.due+")":""}`),...dueToday.filter(t=>t.priority!=="High").slice(0,5).map(t=>`• DUE TODAY: ${t.title}`),"", "FOLLOW-THROUGH",`Completed tasks currently marked done: ${completed.length}`,data.intentionDate===today&&data.intention?`Daily intention: ${data.intention}`:"Daily intention: not set", "", "Generated by Executive Hub · Local workspace data"];
+ const blob=new Blob([lines.join("\n")],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="executive-daily-brief-"+today+".txt";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast("Daily brief generated.");closeCommandPalette();
+}
+$("openCommandPalette")?.addEventListener("click",openCommandPalette);$("dailyBriefBtn")?.addEventListener("click",createDailyBrief);commandSearch?.addEventListener("input",renderCommandResults);
+commandResults?.addEventListener("click",e=>{const b=e.target.closest("[data-command-index]");if(!b)return;const c=commandItems[Number(b.dataset.commandIndex)];if(c)c.run()});
+commandSearch?.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();commandResults.querySelector("[data-command-index]")?.click()}else if(e.key==="ArrowDown"){e.preventDefault();commandResults.querySelector("[data-command-index]")?.focus()}});
+commandPalette?.addEventListener("click",e=>{if(e.target===commandPalette)closeCommandPalette()});
+document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();openCommandPalette()}if(e.key==="Escape")closeCommandPalette()});
+
+})();
+
+window.addEventListener("error", event => {
+  console.error("Executive Hub error:", event.error || event.message);
+  const toastEl = document.getElementById("toast");
+  if (toastEl && document.getElementById("workspaceShell") && !document.getElementById("workspaceShell").classList.contains("hidden")) {
+    toastEl.textContent = "A feature hit an error. Please reload and try again.";
+    toastEl.classList.remove("hidden");
+  }
+});
+window.addEventListener("unhandledrejection", event => {
+  console.error("Executive Hub async error:", event.reason);
+});
+
+</script>
+
+
+
+</body>
+</html>
